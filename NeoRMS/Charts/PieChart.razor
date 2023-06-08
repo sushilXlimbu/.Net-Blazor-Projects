@@ -1,0 +1,79 @@
+﻿@page "/pie"
+@using ChartJs.Blazor.PieChart
+
+
+<div style="width:400px">
+    <Chart Config="_pieConfig"></Chart>
+</div>
+@code {
+
+    private PieConfig _pieConfig;
+
+
+    //get this data from another page
+    [Parameter]
+    public string[] _datas { get; set; }
+
+    [Parameter]
+    public int[] _values { get; set; }
+
+    protected override void OnInitialized()
+    {
+        ConfigurePieConfig();
+    }
+
+    
+
+    private void ConfigurePieConfig()
+    {
+        _pieConfig = new PieConfig
+        {
+            Options = new PieOptions
+            {
+                Responsive = true,
+                Title = new OptionsTitle
+                {
+                    Display = false,
+                    Text = "Data",
+                },
+                Legend = new Legend
+                {
+                    Display = true,
+                    Position = Position.Right,
+                }
+            }
+                
+        };
+  
+
+        foreach (string data in _datas)
+        {
+            _pieConfig.Data.Labels.Add(data);
+        }
+
+        
+
+        PieDataset<int> dataset = new PieDataset<int>(_values)
+        {
+            BackgroundColor = new[]
+            {
+                ColorUtil.ColorHexString(255,91,91),
+                ColorUtil.ColorHexString(16,196,105),
+                ColorUtil.ColorHexString(249,200,81),
+                ColorUtil.ColorHexString(221,222,216),
+                ColorUtil.ColorHexString(195,195,195),
+                ColorUtil.ColorHexString(24,138,226),
+                ColorUtil.ColorHexString(153,153,255),
+
+
+            }
+        };
+
+        _pieConfig.Data.Datasets.Add(dataset);
+
+
+
+
+    }
+
+}

@@ -1,0 +1,92 @@
+body[b-ayj17zxjz4] {
+}
+.card-body[b-ayj17zxjz4] {
+    padding: .3rem .8rem .5rem .8rem !important;
+}
+
+.action .page-link[b-ayj17zxjz4], .action .page-link-opposite[b-ayj17zxjz4] {
+    border-radius: 50%;
+    padding: 0.175rem 0.55rem !important;
+}
+
+.log .page-link[b-ayj17zxjz4], .log .page-link-opposite[b-ayj17zxjz4] {
+    border-radius: 8%;
+    padding: 0 !important;
+}
+
+
+.nav-link[b-ayj17zxjz4] {
+    font-size: .92rem;
+    padding: .4rem !important;
+    border-radius: 0 !important;
+}
+
+.nav-pills .nav-link[b-ayj17zxjz4] {
+    color: var(--primary);
+    font-weight: 500;
+}
+
+    .nav-pills .nav-link:hover[b-ayj17zxjz4] {
+        color: var(--primary);
+        font-weight: 600;
+    }
+
+    .nav-pills .nav-link.active[b-ayj17zxjz4] {
+        color: #fff;
+        background-color: var(--primary);
+    }
+
+
+.form-field[b-ayj17zxjz4] {
+    outline: 0;
+    background: transparent;
+    transition: border-color 0.3s;
+    border: 1px solid #dee2e6;
+    border-radius: 7px;
+    border-bottom-color: #dee2e6 !important;
+}
+
+    .form-field:focus[b-ayj17zxjz4] {
+        /*border-image: linear-gradient(to right, #38ef7d, #38ef7d);*/
+        border: 1px solid #38ef7d;
+        border-image-slice: 1;
+    }
+
+/*
+#RevenueDetail .table .thead-light td{
+    color: var(--text-color);
+    border-color: #e9ecef;
+    background-color: #e7f5fe;
+    padding-left: 8px;
+    padding-right: 8px;
+    color: #71797E;
+}
+
+#RevenueDetail.table tbody td{
+    color: #8898aa;
+}*/
+
+.addTabButton[b-ayj17zxjz4] {
+    display: block;
+}
+
+.removeTabButton[b-ayj17zxjz4] {
+    display: none;
+}
+
+#detailTab .table .thead-light td[b-ayj17zxjz4], #MaintenanceDetail .table .thead-light td[b-ayj17zxjz4], {
+    /* color: var(--text-color);*/
+    border-color: #e9ecef;
+    background-color: #e7f5fe;
+    padding-left: 8px;
+    padding-right: 8px;
+    color: #71797E;
+}
+
+/*#adInventoryTab.table tbody td, #dirtyTab.table tbody td, #blockandmaintenanceTab .table tbody td {
+    color: #8898aa;
+}*/
+
+.tabContent table[b-ayj17zxjz4] {
+    color: #71797E !important;
+}

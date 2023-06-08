@@ -1,0 +1,64 @@
+﻿@page "/gauge"
+
+<div class="gauge" style="width: 150px; --rotation:@rotValue; --color:@colour/*#5cb85c*/; --background:#e9ecef;">
+    <div class="percentage"></div>
+    <div class="mask"></div>
+    <span class="value primary-color">@gaugeValue%</span>
+</div>
+
+@*<button @onclick="()=> increaseValue(20)">20%</button>
+<button @onclick="()=> increaseValue(45)">45%</button>
+<button @onclick="()=> increaseValue(70)">70%</button>
+<button @onclick="()=> increaseValue(100)">100%</button>*@
+
+@code {
+
+    [Parameter]
+    public float gaugeValue { get; set; }
+
+    public string rotValue = 0+"deg";
+    public string colour;
+
+    protected override void OnInitialized()
+    {
+        if (gaugeValue<1)
+        {
+            gaugeValue = 0;
+
+        }
+        increaseValue(gaugeValue);
+
+    }
+
+    public async void increaseValue(float _gaugeValue)
+    {
+        gaugeValue = _gaugeValue;
+        for (float i = 0; i <= _gaugeValue * 1.8; i++)
+        {
+            
+            rotValue = i+"deg";
+
+            //red, yellow, blue green
+            if(i<46)
+            {
+                colour= "#d9534f";
+            }
+            else if(i<90)
+            {
+                colour = "#f0ad4e";
+            }
+            else if(i<135)
+            {
+                colour = "#5bc0de";
+            }
+            else
+            {
+                colour = "#5cb85c";
+            }
+
+            await Task.Delay(1);
+            await InvokeAsync(StateHasChanged);
+
+        }
+    }
+}

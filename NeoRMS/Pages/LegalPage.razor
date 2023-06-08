@@ -1,0 +1,96 @@
+﻿@page "/legal"
+@inherits LegalPageBase
+
+
+<div class="my-2">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col">
+                <div class="card">
+                    <div class="card-header py-2 d-flex justify-content-between align-items-center">
+                        <div>
+                            <h6> Legal Documents  <span class="fa fa-money-bill text-primary-color mx-2" aria-hidden="true"></span></h6>
+                        </div>
+
+                        <div class="d-flex align-items-center">
+                            <div class="d-flex align-items-center">
+
+                                <select class="form-field mx-2 text-muted">
+                                    <option value="">12 March </option>
+                                    <option value="1">13 March </option>
+                                    <option value="2">14 March </option>
+                                </select>
+                                <select class="form-field mx-2 text-muted">
+                                    <option value="">2023 </option>
+                                    <option value="1">2022 </option>
+                                    <option value="2">2024 </option>
+                                </select>
+
+                            </div>
+                            <div class="">
+                                <ul class="header-addons mb-0">
+                                    <li class="">
+                                        <a class="page-link" href="/"><i class="fa fa-arrow-left"></i></a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card-body table-responsive" style="max-height: 80vh">
+
+                        <table class="table table-sm table-hover">
+                            <thead class="thead-light">
+                                <tr>
+                                    <td>Log No</td>
+                                    
+                                    <td>Date </td>
+                                    <td>Property Name </td>
+                                    <td>Document Name</td>
+                                    <td>Documant Type </td>
+                                    <td>Document </td>
+                                    <td>Action </td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var rev in legalData)
+                                {
+                                    <tr>
+                                        <td class="log" @onclick="() =>NavigateTo(rev.LogNo)"><a class="page-link w-75 text-center">@rev.LogNo</a></td>
+                                        <td>@rev.date</td>
+                                        <td>@rev.PropertyName</td>
+                                        <td>@rev.DocumentName</td>
+                                        <td>@rev.DocumentType</td>
+                                        <td><a href="#">@rev.File</a></td>
+                                        <td class="action text-right">
+                                            <ul class="header-addons page-item mb-0">
+                                                <li class="">
+                                                    <a class="page-link" href=""><i class="fa fa-pencil"></i></a>
+                                                </li>
+                                                <li class="">
+                                                    <a class="page-link" href=""><i class="fa fa-trash"></i> </a>
+                                                </li>
+                                            </ul>
+                                        </td>
+                                    </tr>
+                                }
+
+
+                            </tbody>
+                        </table>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+
+
+
+@code {
+
+}

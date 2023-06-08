@@ -1,0 +1,42 @@
+﻿.table {
+    font-size: 16px;
+}
+
+    .table thead tr td {
+        background-color: #4B9F48;
+        color: white;
+        text-align: center;
+        padding: 12px;
+        vertical-align: middle;
+        border-top: none;
+        font-size: .9rem;
+    }
+
+    .table tbody td {
+        text-align: center;
+        padding: 8px;
+        vertical-align: middle;
+        border-top: none;
+        border-bottom: 1px solid #dee2e6;
+        font-size: .9rem;
+    }
+
+        .table tbody td p {
+            cursor: pointer;
+        }
+
+            .table tbody td p.today {
+                background-color: #4B9F48;
+                color: white;
+                font-weight: 400;
+                border-radius: 20%;
+                width: 50%;
+                margin-left: 20%;
+            }
+
+        .table tbody td:not(.today):hover {
+            background-color: #f2f2f2;
+        }
+
+
+

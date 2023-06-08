@@ -1,0 +1,881 @@
+﻿@page "/property"
+@page "/property/{_activeTab}"
+@page "/property/{_activeTab}/{LogNo}"
+@inherits PropertyBase
+
+<PageTitle>Property Management </PageTitle>
+
+<div class="agreement-log">
+    <div class="container-fluid my-2">
+        <div class="row">
+            <div class="col">
+                <div class="card">
+                    <div class="card-header py-2 d-flex justify-content-between align-items-center" style="border-bottom: 2px solid var(--primary); background-color: #F8F8F8">
+                        <div>
+                            <h6> Property Management <span class="fa fa-home mx-2"></span> </h6>
+                        </div>
+                        <div class="d-flex align-items-end">
+                            <div class="">
+                                <ul class="header-addons mb-0">
+                                    <li class="">
+                                        <a class="page-link" href="/property"><i class="fa fa-plus"></i></a>
+                                    </li>
+                                    <li class="">
+                                        <a class="page-link" href="/"><i class="fa fa-floppy-disk"></i></a>
+                                    </li>
+                                    <li class="">
+                                        <a class="page-link" href="/"><i class="fa fa-arrow-left"></i></a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card-body">
+                        <div class="row agreement-information px-2 py-3">
+                            <div class="col-sm-6">
+                                <table class="table table-sm align-middle">
+                                    <tr>
+                                        <td>Log No.</td>
+                                        <td class="w-25">:</td>
+                                        <td>
+                                            <input type="text" class="form-control w-50" id="Agreement"  @bind-value="@_agreementData.AgreementNo"  readonly>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div class="col-sm-6">
+                                <table class="table table-sm align-middle">
+                                    <tr>
+                                        <td>Date</td>
+                                        <td class="w-25">:</td>
+                                        <td>
+                                            <input type="date" class="form-control w-50" id="Date" @bind-value="@_agreementData.Date" disabled>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                        @* Tabs section*@
+
+                        <div class="row log-tabs" style="border-bottom: 2px solid var(--primary); background-color: #F8F8F8">
+                            <div class="col-sm-10">
+                                <ul class="nav nav-pills" id="pills-tab" role="tablist">
+                                    <li class="nav-item" role="presentation">
+                                        <button class="@GetTabHeadClass("propertyTab")" data-bs-toggle="pill" data-bs-target="#Property" type="button" role="tab" aria-controls="pills-contact" aria-selected="true" @onclick='() => setActiveClass("propertyTab")'>Property</button>
+                                    </li>
+                                    <li class="nav-item" role="presentation">
+                                        <div class="arrow-down"><div class="arrow-down-inner"></div></div>
+                                        <button class="@GetTabHeadClass("ownerTab")" data-bs-toggle="pill" data-bs-target="#ownerTab" type="button" role="tab" aria-controls="pills-home" aria-selected="false" @onclick='() => setActiveClass("ownerTab")'>Ownership</button>
+                                    </li>
+                                    <li class="nav-item" role="presentation">
+                                        <button class="@GetTabHeadClass("roomsTab")" data-bs-toggle="pill" data-bs-target="#roomsTab" type="button" role="tab" aria-controls="pills-contact" aria-selected="false" @onclick='() => setActiveClass("roomsTab")'>Rooms</button>
+                                    </li>
+                                    
+                                    <li class="nav-item" role="presentation">
+                                        <button class="@GetTabHeadClass("maintenanceTab")" data-bs-toggle="pill" data-bs-target="#maintenanceTab" type="button" role="tab" aria-controls="pills-contact" aria-selected="false" @onclick='() => setActiveClass("maintenanceTab")'>Maintenance</button>
+                                    </li>
+                                    
+                                    <li class="nav-item" role="presentation">
+                                        <button class="@GetTabHeadClass("legalTab")" data-bs-toggle="pill" data-bs-target="#legalTab" type="button" role="tab" aria-controls="pills-contact" aria-selected="false" @onclick='() => setActiveClass("legalTab")'>Legal Documents</button>
+                                    </li>
+
+                                    
+                                </ul>
+                            </div>
+                         
+                        </div>
+
+                        <div class="tab-content" id="pills-tabContent">
+
+                           @*!-------- Property Tab Starts -------------------!*@
+                            <div class="tab-pane fade show  tabContent @GetActiveClass("propertyTab")" id="propertyTab">
+                                <br/>
+                                <div class="row">
+                                <div class="col-sm-6">
+
+                                    <table class="table table-sm">
+                                      
+                                        <tr>
+                                            <td>Property Type</td>
+                                            <td>:</td>
+                                            <td>
+                                                <select class="form-field">
+                                                    @foreach (var type in _propertyType)
+                                                    {
+                                                        <option value="@type">@type</option>
+                                                    }
+                                                </select>
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>Property Name</td>
+                                            <td>:</td>
+                                            <td>
+                                                <input type="text" class="form-field mt-3">
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Address</td>
+                                            <td>:</td>
+                                            <td>
+                                                <input type="text" class="form-field mt-3">
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>Number of Block</td>
+                                            <td>:</td>
+                                            <td>
+                                                <input type="text" class="form-field mt-3" @bind-value="@_agreementData.NoOfRooms">
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <button type="button" class="btn btn-primary" @onclick="showCompanyModal">Company</button>
+                                            </td>
+
+                                            <td>
+                                                <button type="button" class="btn btn-primary" @onclick="showAgreementModal">Agreement</button>
+                                            </td>
+
+                                        </tr>
+
+                                    </table>
+                                </div>
+
+                                <div class="col-sm-6">
+                                    <table class="table table-sm">
+                                        
+                                        
+                                        <tr>
+                                            <td>Number of Floor</td>
+                                            <td>:</td>
+                                            <td>
+                                                <input type="text" class="form-field mt-3" @bind-value="@_agreementData.NoOfRooms">
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="py-2" colspan="3">
+                                            <div class="row">
+                                                <div class="col-sm-4">
+                                                    <table class="table-sm table-borderless align-middle">
+
+                                                        <td>living Room</td>
+                                                        <td>:</td>
+                                                        <td>
+                                                            <input type="text" class="form-control w-75 " id="length">
+                                                        </td>
+                                                    </table>
+                                                </div>
+                                                <div class="col-sm-4 ps-3">
+                                                    <table class="table-sm table-borderless align-middle">
+                                                        <td>Bed Room</td>
+                                                        <td>:</td>
+
+                                                        <td>
+                                                            <input type="text" class="form-control w-75 " id="width">
+
+                                                        </td>
+                                                    </table>
+                                                </div>
+                                                <div class="col-sm-4 ps-3">
+                                                    <table class="table-sm table-borderless align-middle">
+                                                        <td>Kitchen</td>
+                                                        <td>:</td>
+
+                                                        <td>
+                                                            <input type="text" class="form-control w-75 " id="height">
+
+                                                        </td>
+                                                    </table>
+                                                </div>
+                                              
+
+                                            </div>
+                                        </td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="py-2" colspan="3">
+                                            <div class="row">
+                                                <div class="col-sm-4">
+                                                    <table class="table-sm table-borderless align-middle">
+
+                                                        <td>Washroom</td>
+                                                        <td>:</td>
+                                                        <td>
+                                                            <input type="text" class="form-control w-75" id="length">
+                                                        </td>
+                                                    </table>
+                                                </div>
+                                                @*<div class="col-sm-4 ps-3">
+                                                    <table class="table-sm table-borderless align-middle">
+                                                        <td>Terrace</td>
+                                                        <td>:</td>
+
+                                                        <td>
+                                                            <input type="text" class="form-control  w-75" id="width">
+
+                                                        </td>
+                                                    </table>
+                                                </div>
+                                                <div class="col-sm-4 ps-3">
+                                                    <table class="table-sm table-borderless align-middle">
+                                                        <td>Balcony</td>
+                                                        <td>:</td>
+
+                                                        <td>
+                                                            <input type="text" class="form-control  w-75" id="height">
+
+                                                        </td>
+                                                    </table>
+                                                </div>*@
+                                              
+
+                                            </div>
+                                        </td>
+
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                                
+                            </div>
+
+                            @*!-------- Property Tab Ends -------------------!*@
+
+                            @*!-------- Owner Tab starts -------------------!*@
+                            <div class="tab-pane fade show  tabContent @GetActiveClass("ownerTab")" id="ownerTab">
+                                <br/>
+                            <div class="row">
+                                <div class="col-sm-6">
+
+                                    <table class="table table-sm">
+                                        <tr>
+                                            <td>
+                                               Aggrement No
+                                            </td>
+                                            <td class="w-25">:</td>
+                                            <td>
+                                                <select class="form-field  ms-3">
+                                                    <option value="1">AG1225 </option>
+                                                    <option value="2">AG1224</option>
+                                                    <option value="3">AG1223</option>
+                                                    <option value="4">AG1222</option>
+                                                    <option value="5">AG1221</option>
+                                                </select>
+                                            </td>
+                                        </tr>
+               
+
+                                        <tr>
+                                            <td>
+                                                Property Name
+                                            </td>
+                                            <td class="w-25">:</td>
+                                            <td>
+                                                <select class="form-field  ms-3">
+                                                    <option value="1">Biraj Appartment </option>
+                                                    <option value="2">Ninad Housing</option>
+                                                    <option value="3">Rajib Shelter</option>
+                                                    <option value="4">CG Colony</option>
+                                                    <option value="5">sushil House</option>
+                                                </select>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Owner Name</td>
+                                            <td>:</td>
+                                            <td>
+                                                <input type="text" class="form-field mt-3">
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>Phone Number</td>
+                                            <td>:</td>
+                                            <td>
+                                                <input type="text" class="form-field mt-3">
+
+                                            </td>
+                                        </tr>       
+                                    </table>
+                                </div>
+                                <div class="col-sm-6 ">
+                                    <table class="table table-sm table-borderless">
+                                         <tr >
+                                            <td>
+                                                Email
+                                            </td>
+                                            <td>:</td>
+
+                                            <td>
+                                                <input type="text" class="form-field ms-3 w-85 " id="">
+                                            </td>
+                                        </tr>
+           
+
+                                        <tr >
+                                            <td>
+                                                Address
+                                            </td>
+                                            <td>:</td>
+
+                                            <td>
+                                                <input type="text" class="form-field ms-3 w-85 " id="">
+                                            </td>
+                                        </tr>
+               
+                                    </table>
+                                </div>
+                            </div>
+                            </div>
+
+
+                            @*Owner tab end*@
+
+
+                            <!--Room Tab start-->
+                            <div class="tab-pane fade show  tabContent @GetActiveClass("roomsTab")" id="roomsTab">
+                                <br/>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                     <table class="table table-sm">
+                                    <tr>
+                                        <td>
+                                           Aggrement No
+                                        </td>
+                                        <td class="w-25">:</td>
+                                        <td>
+                                            <select class="form-field  ">
+                                                <option value="1">AG1225 </option>
+                                                <option value="2">AG1224</option>
+                                                <option value="3">AG1223</option>
+                                                <option value="4">AG1222</option>
+                                                <option value="5">AG1221</option>
+                                            </select>
+                                        </td>
+                                    </tr>
+               
+
+                                    <tr>
+                                        <td>
+                                            Property Name
+                                        </td>
+                                        <td class="w-25 mt-3">:</td>
+                                        <td>
+                                            <select class="form-field  ">
+                                                <option value="1">Biraj Appartment </option>
+                                                <option value="2">Ninad Housing</option>
+                                                <option value="3">Rajib Shelter</option>
+                                                <option value="4">CG Colony</option>
+                                                <option value="5">sushil House</option>
+                                            </select>
+                                        </td>
+                                    </tr>
+                                    @*<tr>
+                                        <td>Date</td>
+                                        <td>:</td>
+                                        <td>
+                                            <input type="date" class="form-control mt-2" @bind-value=_revenueData.date/>
+                                        </td>
+                                    </tr>*@
+
+                                    <tr>
+                                        <td class="py-2" colspan="2">
+                                            <div class="row">
+                                                <div class="col-sm-4">
+                                                    <table class="table-sm table-borderless align-middle">
+
+                                                        <td>Length</td>
+                                                        <td>:</td>
+                                                        <td>
+                                                            <input type="text" class="form-control w-75 ms-2" id="length">
+                                                        </td>
+                                                    </table>
+                                                </div>
+                                                <div class="col-sm-4 ps-3">
+                                                    <table class="table-sm table-borderless align-middle">
+                                                        <td>Width</td>
+                                                        <td>:</td>
+
+                                                        <td>
+                                                            <input type="text" class="form-control w-75 ms-2" id="width">
+
+                                                        </td>
+                                                    </table>
+                                                </div>
+                                                <div class="col-sm-4 ps-3">
+                                                    <table class="table-sm table-borderless align-middle">
+                                                        <td>Height</td>
+                                                        <td>:</td>
+
+                                                        <td>
+                                                            <input type="text" class="form-control w-75 ms-2" id="height">
+
+                                                        </td>
+                                                    </table>
+                                                </div>
+
+                                            </div>
+                                        </td>
+                                    </tr>       
+                                </table>
+
+                                </div>
+                                <div class="col-sm-6">
+                                     <table class="table table-sm table-borderless">
+                                    <tr>
+
+                                        <td class="">Plot Number</td>
+                                        <td>:</td>
+
+                                        <td>
+                                            <input type="text" class="form-control m-1  w-50" id="">
+                                        </td>
+
+                                    </tr>
+                                    <tr>
+
+                                        <td class="">Area</td>
+                                        <td>:</td>
+
+                                        <td>
+                                            <input type="text" class="form-control m-1  w-50" id="">
+                                        </td>
+
+                                    </tr>
+               
+               
+               
+                                </table>
+                                </div>
+                                <div class="m-2">
+                                    <p>Facilities and Utilities</p>
+                                    <div class="row">
+                                        <div class="col-3">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="" id="CheckDefault">
+                                                <label class="form-check-label" for="CheckDefault">
+                                                    Electricity
+                                                </label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="" id="flexCheck1">
+                                                <label class="form-check-label" for="flexCheck1">
+                                                    Water
+                                                </label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="" id="flexCheck2">
+                                                <label class="form-check-label" for="flexCheck2">
+                                                    Internet
+                                                </label>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-3">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="" id="flexCheck3">
+                                                <label class="form-check-label" for="flexCheck3">
+                                                    Tv cable
+                                                </label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="" id="flexCheck4">
+                                                <label class="form-check-label" for="flexCheck4">
+                                                    Furniture
+                                                </label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="" id="flexCheck5">
+                                                <label class="form-check-label" for="flexCheck5">
+                                                    Kitchenware
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="col-3">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="" id="flexCheck6">
+                                                <label class="form-check-label" for="flexCheck6">
+                                                    Garbage Collection
+                                                </label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="" id="flexCheck7">
+                                                <label class="form-check-label" for="flexCheck7">
+                                                    Parking
+                                                </label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="" id="flexCheck8">
+                                                <label class="form-check-label" for="flexCheck8">
+                                                    Terrace
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="col-3">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="" id="flexCheck9">
+                                                <label class="form-check-label" for="flexCheck9">
+                                                    Balcony
+                                                </label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="" id="flexCheck10">
+                                                <label class="form-check-label" for="flexCheck10">
+                                                    Air Conditioner
+                                                </label>
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                            </div>
+
+                            <!--Room Tab Ends-->
+                            
+                        
+
+                            @*Maintenance section start*@
+                            <div class="tab-pane fade show  tabContent @GetActiveClass("maintenanceTab")" id="maintenanceTab">
+                                <br/>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <table class="table table-sm">
+                                    <tr>
+                                        <td>
+                                           Aggrement No
+                                        </td>
+                                        <td class="w-25">:</td>
+                                        <td>
+                                            <select class="form-field  ">
+                                                <option value="1">AG1225 </option>
+                                                <option value="2">AG1224</option>
+                                                <option value="3">AG1223</option>
+                                                <option value="4">AG1222</option>
+                                                <option value="5">AG1221</option>
+                                            </select>
+                                        </td>
+                                    </tr>
+               
+
+                                    <tr>
+                                        <td>
+                                            Property Name
+                                        </td>
+                                        <td class="w-25 mt-3">:</td>
+                                        <td>
+                                            <select class="form-field  ">
+                                                <option value="1">Biraj Appartment </option>
+                                                <option value="2">Ninad Housing</option>
+                                                <option value="3">Rajib Shelter</option>
+                                                <option value="4">CG Colony</option>
+                                                <option value="5">sushil House</option>
+                                            </select>
+                                        </td>
+                                    </tr>
+
+
+             
+                                    <tr>
+                                        <td>Maintenance Type</td>
+                                        <td>:</td>
+                                        <td>
+                                            <select class="form-control">
+                                                @foreach (var type in _maintenance)
+                                                {
+                                                    <option value=@type>@type</option>
+                                                }
+                                            </select>
+
+                                        </td>
+                                    </tr>       
+                                </table>
+                                </div>
+                                <div class="col-sm-6">
+                                    <table class="table table-sm table-borderless">
+                                         <tr >
+                                            <td>
+                                                Cost Bearer
+                                            </td>
+                                            <td>:</td>
+
+                                            <td>
+                                                   <select class="form-control">
+                                                        @foreach (var cost in _costBearer)
+                                                        {
+                                                            <option value=@cost>@cost</option>
+                                                        }
+                                                   </select>
+                                            </td>
+                                        </tr>
+           
+
+                                        <tr >
+                                            <td>
+                                                Maintenance Date
+                                            </td>
+                                            <td>:</td>
+
+                                            <td>
+                                                <input type="date" class="form-control mt-2"/>
+                                            </td>
+                                        </tr> 
+                
+               
+                                    </table>
+                                </div>
+
+                            </div>
+                            </div>
+
+                            @*Maintenance section End*@
+
+                            <!--Legal tab Start-->
+                            <div class="tab-pane fade show tabContent @GetActiveClass("legalTab")" id="legalTab">
+                                <br/>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <table class="table table-sm">
+                                    <tr>
+                                        <td>
+                                           Aggrement No
+                                        </td>
+                                        <td class="w-25">:</td>
+                                        <td>
+                                            <select class="form-field  ">
+                                                <option value="1">AG1225 </option>
+                                                <option value="2">AG1224</option>
+                                                <option value="3">AG1223</option>
+                                                <option value="4">AG1222</option>
+                                                <option value="5">AG1221</option>
+                                            </select>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>
+                                            Property Name
+                                        </td>
+                                        <td class="w-25 mt-3">:</td>
+                                        <td>
+                                            <select class="form-field  ">
+                                                <option value="1">Biraj Appartment </option>
+                                                <option value="2">Ninad Housing</option>
+                                                <option value="3">Rajib Shelter</option>
+                                                <option value="4">CG Colony</option>
+                                                <option value="5">sushil House</option>
+                                            </select>
+                                        </td>
+                                    </tr>
+
+                
+                                    <tr >
+                                        <td>
+                                            Date
+                                        </td>
+                                        <td>:</td>
+
+                                        <td>
+                                            <input type="date" class="form-control mt-2"/>
+                                        </td>
+                                    </tr>
+             
+                  
+                                </table>
+                                </div>
+                                <div class="col-sm-6">
+                                    <table class="table table-sm table-borderless">
+                                        <tr>
+                                            <td>Document Name</td>
+                                            <td>:</td>
+                                            <td>
+                                                <input type="text" class="form-field ms-3 w-85 " id="">
+
+                                            </td>
+                                        </tr>     
+                                        <tr>
+                                            <td>Document Type</td>
+                                            <td>:</td>
+                                            <td>
+                                                <input type="text" class="form-field ms-3 w-85 " id="">
+
+                                            </td>
+                                        </tr>     
+                                         <tr >
+                                            <td>
+                                                Select Document
+                                            </td>
+                                            <td>:</td>
+
+                                            <td>
+                                                  <input type="file"  id="">
+                                            </td>
+                                        </tr>
+           
+ 
+                
+               
+                                    </table>
+                                </div>
+
+                            </div>
+                            </div>
+
+
+                            <!--Legal tab Ends-->
+
+
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+@if (companyModal)
+{
+    <Modals Title="Add Company"
+          ModalSize="modal-xl"
+            Type="Modals.Category.Save"
+        OnClose="closeCompanyModal">
+       
+
+    
+    <div class="row">
+        <div class="col-sm-6">
+            <table class="table table-sm table-borderless">
+                
+                <tr>
+                    <td>
+                       Vat Pan No
+                    </td>
+                    <td class="w-25">:</td>
+                    <td>
+                         <input type="text" class="form-control mt-2" placeholder="Vat Number" />
+                    </td>
+                </tr>
+               
+
+                <tr>
+                    <td>
+                        Phone Number
+                    </td>
+                    <td class="w-25 mt-3">:</td>
+                    <td>
+                         <input type="text" class="form-control mt-2" placeholder="5000500"/>
+                    </td>
+                </tr>
+
+                  <tr>
+                    <td>Mobile Number</td>
+                    <td>:</td>
+                    <td>
+                         <input type="text" class="form-control mt-2"  placeholder="9000000000"/>
+                    </td>
+                </tr>
+                  <tr>
+                    <td>Company description</td>
+                    <td>:</td>
+                    <td>
+                        <textarea type="text" class="form-control" placeholder="Company description" />
+                    </td>
+                </tr>
+             
+                
+            </table>
+        </div>
+        <div class="col-sm-6">
+             <table class="table table-sm table-borderless" >
+                 <tr>
+                    <td>Email</td>
+                    <td>:</td>
+                    <td>
+                         <input type="text" class="form-control mt-2" placeholder="neo@example.com" />  
+                    </td>
+                </tr> 
+                 <tr >
+                    <td>
+                        Contact Person
+                    </td>
+                    <td>:</td>
+
+                    <td>
+                          <input type="text" class="form-control mt-2"  placeholder="Bijay Baniya"/>
+                    </td>
+                </tr>
+           
+
+                <tr >
+                    <td>
+                        Website
+                    </td>
+                    <td>:</td>
+
+                    <td>
+                         <input type="text" class="form-control mt-2" placeholder="www.neosoftware.com.np"/>
+                    </td>
+                </tr>
+                
+               
+            </table>
+        </div>
+    </div>
+
+  
+
+        
+
+    </Modals>
+}
+
+
+
+
+@*Agreement Modal*@
+@if (agreementModal)
+{
+    <Modals Title="Add Agreement"
+            ModalSize="modal-xl"
+            Type="Modals.Category.Submit"
+            OnClose="closeAgreementModal">
+        
+        @foreach (var agg in agreements)
+        {
+            
+            <div class="form-check mb-2">
+                <input class="form-check-input" type="checkbox" value="" id="@agreements.IndexOf(agg)" checked="@IsChecked">
+                <label class="form-check-label" for="@agreements.IndexOf(agg)">
+                    @agg
+                </Label>
+            </div>
+
+            
+        }
+        
+        @if (IsChecked)
+        {
+            <button type="button" class="btn btn-primary" @onclick="RejectAll">Reject All</button>
+        }
+        else
+        {
+            <button type="button" class="btn btn-primary" @onclick="CheckAll">Check All</button>
+        }
+        
+
+    </Modals>
+
+}

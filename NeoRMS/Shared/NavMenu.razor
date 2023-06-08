@@ -1,0 +1,362 @@
+﻿@using NeoRMS.Storage;
+@inject NavigationManager NavigationManager
+
+
+
+<div class="top-row navbar p-2 bg-primary-color">
+    <div class="d-flex align-items-center">
+        <div class="bg-white d-flex align-items-center ps-1" style="border-radius: 50%; width: 2.7rem; height: 2.7rem ;"><img src="images/neologo1.png" alt="" width="35" height="12"> </div>
+
+        <span class="ps-1 text-white nav-header-text" style="font-size: .95rem; font-weight: 400; "> Rental Management</span>
+
+        @*<div class="bg-white d-flex align-items-center" style="height: 2.7rem; width: 100%;"> <span class="ps-2" style="font-size: 1rem; font-weight: 400;"> House Keeping</span></div>
+        <div class="bg-white d-flex align-items-center ps-1" style="border-bottom-left-radius: 50%; border-top-left-radius: 50%; width: 2.7rem; height: 2.7rem;"><img src="images/neologo1.png" alt="" width="35" height="12"> </div>
+
+        https://stackoverflow.com/questions/58914389/how-to-create-navmenu-with-collapsible-submenu-in-net-core-blazor-app
+        *@
+        <button title="Navigation menu" class="navbar-toggler" @onclick="ToggleNavMenu">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+    </div>
+</div>
+
+<!--Modified nav bar-->
+<div class="@NavMenuCssClass nav-scrollable " @onclick="ToggleNavMenu">
+
+    <div class="mx-4 p-header  my-2">
+        <div class="input-group search-box d-flex px-1">
+            <input type="text" class="form-field w-75" placeholder="Search..." />
+            <span  id="search-addon"><i class="fa fa-search p-2"></i></span>
+           
+        </div>
+    </div>
+    <nav class="flex-column">
+
+        <div class="my-2">
+            <p class="hr-lines text-muted "> Dashboard </p>
+        </div>
+       
+         <div class="nav-item">
+            <a class="@($"nav-link {@GetMenuClass("quickinfo")}")" href="/quickInfo" @onclick="@(() => setMenu("quickinfo"))">
+                <div class="px-4">
+                    <span class="fa fa-info-circle text-primary-color" aria-hidden="true"></span>
+                    <span class="nav-text"> Quick Info </span>
+                </div>
+            </a>
+        </div>
+
+        <div class="nav-item">
+            <a class="@($"nav-link {@GetMenuClass("chart")}")" href="/charts" @onclick="@(() => setMenu("chart"))">
+                <div class="px-4">
+                    <span class="fa fa-pie-chart text-primary-color" aria-hidden="true"></span>
+                    <span class="nav-text"> Charts </span>
+                </div>
+            </a>
+        </div>
+
+        <div class="my-2">
+            <p class="hr-lines text-muted"> Operation </p>
+        </div>
+
+        <div class="nav-item">
+            <a class="@($"nav-link {@GetMenuClass("property")}")" href="/property" @onclick="@(() => setMenu("property"))">
+                <div class="px-4">
+                    <span class="fa fa-home text-primary-color" aria-hidden="true"></span>
+                    <span class="nav-text"> Property Management </span>
+                </div>
+            </a>
+        </div>
+
+        <div class="nav-item">
+            <a class="@($"nav-link {@GetMenuClass("rentalmanagement")}")" href="/rentalmanagement" @onclick="@(() => setMenu("rentalmanagement"))">
+                <div class="px-4">
+                    <span class="fa fa-handshake text-primary-color" aria-hidden="true"></span>
+                    <span class="nav-text"> Rental Management </span>
+                </div>
+            </a>
+        </div>
+        <div class="nav-item">
+            <a class="@($"nav-link {@GetMenuClass("buildingmanagement")}")" href="/buildingmanagement" @onclick="@(() => setMenu("buildingmanagement"))">
+                <div class="px-4">
+                    <span class="fa fa-handshake text-primary-color" aria-hidden="true"></span>
+                    <span class="nav-text"> Building Management </span>
+                </div>
+            </a>
+        </div>
+
+        <div class="nav-item">
+            <a class="@($"nav-link {@GetMenuClass("propertyDetail")}")" href="/propertyDetail" @onclick="@(() => setMenu("propertyDetail"))">
+                <div class="px-4">
+                    <span class="fa fa-home text-primary-color" aria-hidden="true"></span>
+                    <span class="nav-text"> Property </span>
+                </div>
+            </a>
+        </div>
+        <div class="nav-item">
+            <a class="@($"nav-link {@GetMenuClass("rentalDetail")}")" href="/rentalDetail" @onclick="@(() => setMenu("rentalDetail"))">
+                <div class="px-4">
+                    <span class="fa fa-handshake text-primary-color" aria-hidden="true"></span>
+                    <span class="nav-text"> Rental </span>
+                </div>
+            </a>
+        </div>
+
+        <div class="nav-item">
+            <a class="@($"nav-link {@GetMenuClass("revenue")}")" href="/revenue" @onclick="@(() => setMenu("revenue"))">
+                <div class="px-4">
+                    <span class="fa fa-money-bill text-primary-color" aria-hidden="true"></span>
+                    <span class="nav-text"> Revenue </span>
+                </div>
+            </a>
+        </div>
+
+        <div class="nav-item">
+            <a class="@($"nav-link {@GetMenuClass("maintenance")}")" href="/maintenance" @onclick="@(() => setMenu("maintenance"))">
+                <div class="px-4">
+                    <span class="fa fa-screwdriver-wrench text-primary-color" aria-hidden="true"></span>
+                    <span class="nav-text"> Maintenance </span>
+                </div>
+            </a>
+        </div>
+
+        <div class="nav-item">
+            <a class="@($"nav-link {@GetMenuClass("communication")}")" href="/communication" @onclick="@(() => setMenu("communication"))">
+                <div class="px-4 d-flex align-items-center">
+                    <span class="fa fa-phone text-primary-color" aria-hidden="true"></span>
+                    <span class="nav-text"> Communication</span>
+                </div>
+            </a>
+        </div>
+
+        <div class="nav-item">
+            <a class="@($"nav-link {@GetMenuClass("compliance")}")" @onclick="@(() => setMenu("compliance"))" style="cursor: pointer">
+                <div class="px-4 d-flex align-items-center">
+                    <span class="fa fa-file text-primary-color" aria-hidden="true"></span>
+                    <span class="nav-text"> Compliance </span>
+                    <span class="fa fa-chevron-down text-primary-color mx-2 fs-6" aria-hidden="true"></span>
+                </div>
+            </a>
+            @if (activeMenu == "compliance")
+            {
+                <a class="@($"nav-link {@GetSubClass("document")}")" href="/legal" @onclick="@(() => setSubMenu("document"))">
+                    <div class="px-4 ps-5">
+                        <span class="fa fa-file-text text-primary-color" aria-hidden="true"></span>
+                        <span class="nav-text">Legal Documents </span>
+                    </div>
+                </a>
+                <a class="@($"nav-link {@GetSubClass("judiciaryActions")}")" href="/judiciary" @onclick="@(() => setSubMenu("judiciaryActions"))">
+                    <div class="px-4 ps-5">
+                        <span class="fa fa-gavel text-primary-color" aria-hidden="true"></span>
+                        <span class="nav-text">Judiciary Actions </span>
+                    </div>
+                </a>
+            }
+
+        </div>
+
+        <div class="nav-item">
+            <a class="@($"nav-link {@GetMenuClass("termination")}")" href="/termination" @onclick="@(() => setMenu("termination"))">
+                <div class="px-4">
+                    <span class="fa fa-window-close text-primary-color" aria-hidden="true"></span>
+                    <span class="nav-text"> Termination </span>
+                </div>
+            </a>
+        </div>
+
+        <div class="nav-item">
+            <a class="@($"nav-link {@GetMenuClass("report")}")" href="/report" @onclick="@(() => setMenu("report"))">
+                <div class="px-4">
+                    <span class="fa fa-folder-open text-primary-color" aria-hidden="true"></span>
+                    <span class="nav-text">Reports</span>
+                </div>
+            </a>
+        </div>
+
+    </nav>
+</div>
+
+<!--Original nav bar-->
+
+@*
+<div class="@NavMenuCssClass nav-scrollable shadow" @onclick="ToggleNavMenu">
+    <nav class="flex-column">
+        <div class="nav-item">
+            <NavLink class="nav-link" href="/dashboard" Match="NavLinkMatch.All" @onclick="@(() => clearMenu("all"))">
+                <div class="px-4">
+                    <span class="fa fa-home text-primary-color" aria-hidden="true"></span>
+                    <span class="nav-text">Dashboard </span>
+                </div>
+            </NavLink>
+        </div>
+        <div class="nav-item">
+            <NavLink class="nav-link" href="/property" @onclick="@(() => clearMenu("all"))">
+                <div class="px-4">
+                    <span class="fa fa-handshake text-primary-color" aria-hidden="true"></span>
+                    <span class="nav-text"> Agreement </span>
+                </div>
+            </NavLink>
+        </div>
+
+
+        <div class="nav-item">
+            <NavLink class="@($"nav-link {NavMenuCssClass}")"  @onclick="@(() => clearMenu("1"))" style="cursor: pointer">
+                <div class="px-4 d-flex align-items-center">
+                    <span class="fa fa-file text-primary-color" aria-hidden="true"></span>
+                    <span class="nav-text"> Documents </span>
+                    <span class="fa fa-chevron-down text-primary-color mx-2 fs-6" aria-hidden="true"></span>
+                </div>
+            </NavLink>
+            @if (expandMenuSubNav)
+            {
+                <a class="nav-link" href="/ownerdetail">
+                    <div class="px-4 ps-5">
+                        <span class="fa fa-person-circle-question text-primary-color" aria-hidden="true"></span>
+                        <span class="nav-text">Owner Details </span>
+                    </div>
+                </a>
+                <a class="nav-link" href="/items">
+                    <div class="px-4 ps-5">
+                        <span class="fa fa-eye text-primary-color" aria-hidden="true"></span>
+                        <span class="nav-text">Items </span>
+                    </div>
+                </a>
+            }
+
+        </div>
+
+
+        <div class="nav-item">
+            <NavLink class="nav-link" href="/documents" @onclick="@(() => clearMenu("all"))">
+                <div class="px-4">
+                    <span class="fa fa-house text-primary-color" aria-hidden="true"></span>
+                    <span class="nav-text"> Rooms </span>
+                </div>
+            </NavLink>
+        </div>
+        
+        <div class="nav-item">
+            <NavLink class="nav-link" href="/communication" @onclick="@(() => clearMenu("all"))">
+                <div class="px-4 d-flex align-items-center">
+                    <span class="fa fa-phone text-primary-color" aria-hidden="true"></span>
+                    <span class="nav-text"> Communication</span>
+                </div>
+            </NavLink>
+
+        </div>
+        <div class="nav-item">
+            <NavLink class="nav-link" href="/revenue" @onclick="@(() => clearMenu("all"))">
+                <div class="px-4">
+                    <span class="fa fa-money-bill text-primary-color" aria-hidden="true"></span>
+                    <span class="nav-text"> Revenue Collection </span>
+                </div>
+            </NavLink>
+        </div>
+
+
+        <div class="nav-item">
+            <NavLink class="nav-link" href="/terms" @onclick="@(() => clearMenu("all"))">
+                <div class="px-4">
+                    <span class="fa fa-file-contract text-primary-color" aria-hidden="true"></span>
+                    <span class="nav-text">Terms and Condition </span>
+                </div>
+            </NavLink>
+        </div>
+        
+        <div class="nav-item">
+            <NavLink class="nav-link" href="/termination" @onclick="@(() => clearMenu("all"))">
+                <div class="px-4">
+                    <span class="fa fa-lock text-primary-color" aria-hidden="true"></span>
+                    <span class="nav-text">Termination </span>
+                </div>
+            </NavLink>
+        </div>
+        
+        <div class="nav-item">
+            <NavLink class="nav-link" href="/maintenance" @onclick="@(() => clearMenu("all"))">
+                <div class="px-4">
+                    <span class="fa fa-gears text-primary-color" aria-hidden="true"></span>
+                    <span class="nav-text">Maintenance </span>
+                </div>
+            </NavLink>
+        </div>
+
+
+    </nav>
+</div>
+*@
+@code {
+
+    private bool collapseNavMenu = true;
+
+    private bool expandMenuSubNav;
+
+    private bool expandMenu2SubNav;
+
+    public string? NavMenuCssClass => expandMenuSubNav ? "active" : null;
+
+    private string? isActive => expandMenu2SubNav ? "active" : null;
+
+    private static string activeMenu = "quickinfo";
+
+    private static string activeSubMenu;
+
+
+    private void setMenu(string menu)
+    {
+        if (activeMenu == menu)
+        {
+            activeMenu = "";
+        }
+        else
+        {
+            activeMenu = menu;
+        }
+        activeSubMenu = "";
+
+    }
+
+    private void setSubMenu(string menu)
+    {
+        if (activeSubMenu == menu)
+        {
+            activeSubMenu = "";
+        }
+        else
+        {
+            activeSubMenu = menu;
+        }
+
+    }
+
+    public string GetMenuClass(string tabId)
+    {
+        if (tabId == activeMenu)
+        {
+            return "activeMenu";
+        }
+        else
+        {
+            return "";
+        }
+    }
+
+
+    public string GetSubClass(string tabId)
+    {
+        if (tabId == activeSubMenu)
+        {
+            return "activeSubMenu";
+        }
+        else
+        {
+            return "";
+        }
+    }
+    private void ToggleNavMenu()
+    {
+        collapseNavMenu = !collapseNavMenu;
+    }
+
+
+
+}

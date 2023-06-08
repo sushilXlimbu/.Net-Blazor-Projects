@@ -1,0 +1,108 @@
+G:\Office work\RMS neo\NeoRMS\NeoRMS\bin\Debug\net7.0\appsettings.Development.json
+G:\Office work\RMS neo\NeoRMS\NeoRMS\bin\Debug\net7.0\appsettings.json
+G:\Office work\RMS neo\NeoRMS\NeoRMS\bin\Debug\net7.0\NeoRMS.staticwebassets.runtime.json
+G:\Office work\RMS neo\NeoRMS\NeoRMS\bin\Debug\net7.0\NeoRMS.exe
+G:\Office work\RMS neo\NeoRMS\NeoRMS\bin\Debug\net7.0\NeoRMS.deps.json
+G:\Office work\RMS neo\NeoRMS\NeoRMS\bin\Debug\net7.0\NeoRMS.runtimeconfig.json
+G:\Office work\RMS neo\NeoRMS\NeoRMS\bin\Debug\net7.0\NeoRMS.dll
+G:\Office work\RMS neo\NeoRMS\NeoRMS\bin\Debug\net7.0\NeoRMS.pdb
+G:\Office work\RMS neo\NeoRMS\NeoRMS\bin\Debug\net7.0\ChartJs.Blazor.dll
+G:\Office work\RMS neo\NeoRMS\NeoRMS\bin\Debug\net7.0\Newtonsoft.Json.dll
+G:\Office work\RMS neo\NeoRMS\NeoRMS\obj\Debug\net7.0\NeoRMS.csproj.AssemblyReference.cache
+G:\Office work\RMS neo\NeoRMS\NeoRMS\obj\Debug\net7.0\NeoRMS.GeneratedMSBuildEditorConfig.editorconfig
+G:\Office work\RMS neo\NeoRMS\NeoRMS\obj\Debug\net7.0\NeoRMS.AssemblyInfoInputs.cache
+G:\Office work\RMS neo\NeoRMS\NeoRMS\obj\Debug\net7.0\NeoRMS.AssemblyInfo.cs
+G:\Office work\RMS neo\NeoRMS\NeoRMS\obj\Debug\net7.0\NeoRMS.csproj.CoreCompileInputs.cache
+G:\Office work\RMS neo\NeoRMS\NeoRMS\obj\Debug\net7.0\NeoRMS.MvcApplicationPartsAssemblyInfo.cache
+G:\Office work\RMS neo\NeoRMS\NeoRMS\obj\Debug\net7.0\NeoRMS.RazorAssemblyInfo.cache
+G:\Office work\RMS neo\NeoRMS\NeoRMS\obj\Debug\net7.0\NeoRMS.RazorAssemblyInfo.cs
+G:\Office work\RMS neo\NeoRMS\NeoRMS\obj\Debug\net7.0\staticwebassets\msbuild.NeoRMS.Microsoft.AspNetCore.StaticWebAssets.props
+G:\Office work\RMS neo\NeoRMS\NeoRMS\obj\Debug\net7.0\staticwebassets\msbuild.build.NeoRMS.props
+G:\Office work\RMS neo\NeoRMS\NeoRMS\obj\Debug\net7.0\staticwebassets\msbuild.buildMultiTargeting.NeoRMS.props
+G:\Office work\RMS neo\NeoRMS\NeoRMS\obj\Debug\net7.0\staticwebassets\msbuild.buildTransitive.NeoRMS.props
+G:\Office work\RMS neo\NeoRMS\NeoRMS\obj\Debug\net7.0\staticwebassets.pack.json
+G:\Office work\RMS neo\NeoRMS\NeoRMS\obj\Debug\net7.0\staticwebassets.build.json
+G:\Office work\RMS neo\NeoRMS\NeoRMS\obj\Debug\net7.0\staticwebassets.development.json
+G:\Office work\RMS neo\NeoRMS\NeoRMS\obj\Debug\net7.0\scopedcss\Charts\Gauge.razor.rz.scp.css
+G:\Office work\RMS neo\NeoRMS\NeoRMS\obj\Debug\net7.0\scopedcss\Pages\Communication.razor.rz.scp.css
+G:\Office work\RMS neo\NeoRMS\NeoRMS\obj\Debug\net7.0\scopedcss\Pages\Dashboard.razor.rz.scp.css
+G:\Office work\RMS neo\NeoRMS\NeoRMS\obj\Debug\net7.0\scopedcss\Pages\Judiciary.razor.rz.scp.css
+G:\Office work\RMS neo\NeoRMS\NeoRMS\obj\Debug\net7.0\scopedcss\Pages\LegalPage.razor.rz.scp.css
+G:\Office work\RMS neo\NeoRMS\NeoRMS\obj\Debug\net7.0\scopedcss\Pages\Maintenance.razor.rz.scp.css
+G:\Office work\RMS neo\NeoRMS\NeoRMS\obj\Debug\net7.0\scopedcss\Pages\Ownerdetail.razor.rz.scp.css
+G:\Office work\RMS neo\NeoRMS\NeoRMS\obj\Debug\net7.0\scopedcss\Pages\Property.razor.rz.scp.css
+G:\Office work\RMS neo\NeoRMS\NeoRMS\obj\Debug\net7.0\scopedcss\Pages\PropertyDetail.razor.rz.scp.css
+G:\Office work\RMS neo\NeoRMS\NeoRMS\obj\Debug\net7.0\scopedcss\Pages\QuickInfo.razor.rz.scp.css
+G:\Office work\RMS neo\NeoRMS\NeoRMS\obj\Debug\net7.0\scopedcss\Pages\RentalDetail.razor.rz.scp.css
+G:\Office work\RMS neo\NeoRMS\NeoRMS\obj\Debug\net7.0\scopedcss\Pages\RentalManagement.razor.rz.scp.css
+G:\Office work\RMS neo\NeoRMS\NeoRMS\obj\Debug\net7.0\scopedcss\Pages\Revenue.razor.rz.scp.css
+G:\Office work\RMS neo\NeoRMS\NeoRMS\obj\Debug\net7.0\scopedcss\Pages\Rooms.razor.rz.scp.css
+G:\Office work\RMS neo\NeoRMS\NeoRMS\obj\Debug\net7.0\scopedcss\Pages\Termination.razor.rz.scp.css
+G:\Office work\RMS neo\NeoRMS\NeoRMS\obj\Debug\net7.0\scopedcss\Shared\Calendar.razor.rz.scp.css
+G:\Office work\RMS neo\NeoRMS\NeoRMS\obj\Debug\net7.0\scopedcss\Shared\CalendarWeek.razor.rz.scp.css
+G:\Office work\RMS neo\NeoRMS\NeoRMS\obj\Debug\net7.0\scopedcss\Shared\MainLayout.razor.rz.scp.css
+G:\Office work\RMS neo\NeoRMS\NeoRMS\obj\Debug\net7.0\scopedcss\Shared\Modals.razor.rz.scp.css
+G:\Office work\RMS neo\NeoRMS\NeoRMS\obj\Debug\net7.0\scopedcss\Shared\NavMenu.razor.rz.scp.css
+G:\Office work\RMS neo\NeoRMS\NeoRMS\obj\Debug\net7.0\scopedcss\bundle\NeoRMS.styles.css
+G:\Office work\RMS neo\NeoRMS\NeoRMS\obj\Debug\net7.0\scopedcss\projectbundle\NeoRMS.bundle.scp.css
+G:\Office work\RMS neo\NeoRMS\NeoRMS\obj\Debug\net7.0\NeoRMS.csproj.CopyComplete
+G:\Office work\RMS neo\NeoRMS\NeoRMS\obj\Debug\net7.0\NeoRMS.dll
+G:\Office work\RMS neo\NeoRMS\NeoRMS\obj\Debug\net7.0\refint\NeoRMS.dll
+G:\Office work\RMS neo\NeoRMS\NeoRMS\obj\Debug\net7.0\NeoRMS.pdb
+G:\Office work\RMS neo\NeoRMS\NeoRMS\obj\Debug\net7.0\NeoRMS.genruntimeconfig.cache
+G:\Office work\RMS neo\NeoRMS\NeoRMS\obj\Debug\net7.0\ref\NeoRMS.dll
+G:\Office work\RMS neo\NeoRMS\NeoRMS\obj\Debug\net7.0\scopedcss\Pages\BuildingManagement.razor.rz.scp.css
+G:\Office work - Copy\RMS neo\NeoRMS\NeoRMS\bin\Debug\net7.0\appsettings.Development.json
+G:\Office work - Copy\RMS neo\NeoRMS\NeoRMS\bin\Debug\net7.0\appsettings.json
+G:\Office work - Copy\RMS neo\NeoRMS\NeoRMS\bin\Debug\net7.0\NeoRMS.staticwebassets.runtime.json
+G:\Office work - Copy\RMS neo\NeoRMS\NeoRMS\bin\Debug\net7.0\NeoRMS.exe
+G:\Office work - Copy\RMS neo\NeoRMS\NeoRMS\bin\Debug\net7.0\NeoRMS.deps.json
+G:\Office work - Copy\RMS neo\NeoRMS\NeoRMS\bin\Debug\net7.0\NeoRMS.runtimeconfig.json
+G:\Office work - Copy\RMS neo\NeoRMS\NeoRMS\bin\Debug\net7.0\NeoRMS.dll
+G:\Office work - Copy\RMS neo\NeoRMS\NeoRMS\bin\Debug\net7.0\NeoRMS.pdb
+G:\Office work - Copy\RMS neo\NeoRMS\NeoRMS\bin\Debug\net7.0\ChartJs.Blazor.dll
+G:\Office work - Copy\RMS neo\NeoRMS\NeoRMS\bin\Debug\net7.0\Newtonsoft.Json.dll
+G:\Office work - Copy\RMS neo\NeoRMS\NeoRMS\obj\Debug\net7.0\NeoRMS.csproj.AssemblyReference.cache
+G:\Office work - Copy\RMS neo\NeoRMS\NeoRMS\obj\Debug\net7.0\NeoRMS.GeneratedMSBuildEditorConfig.editorconfig
+G:\Office work - Copy\RMS neo\NeoRMS\NeoRMS\obj\Debug\net7.0\NeoRMS.AssemblyInfoInputs.cache
+G:\Office work - Copy\RMS neo\NeoRMS\NeoRMS\obj\Debug\net7.0\NeoRMS.AssemblyInfo.cs
+G:\Office work - Copy\RMS neo\NeoRMS\NeoRMS\obj\Debug\net7.0\NeoRMS.csproj.CoreCompileInputs.cache
+G:\Office work - Copy\RMS neo\NeoRMS\NeoRMS\obj\Debug\net7.0\NeoRMS.MvcApplicationPartsAssemblyInfo.cache
+G:\Office work - Copy\RMS neo\NeoRMS\NeoRMS\obj\Debug\net7.0\NeoRMS.RazorAssemblyInfo.cache
+G:\Office work - Copy\RMS neo\NeoRMS\NeoRMS\obj\Debug\net7.0\NeoRMS.RazorAssemblyInfo.cs
+G:\Office work - Copy\RMS neo\NeoRMS\NeoRMS\obj\Debug\net7.0\staticwebassets\msbuild.NeoRMS.Microsoft.AspNetCore.StaticWebAssets.props
+G:\Office work - Copy\RMS neo\NeoRMS\NeoRMS\obj\Debug\net7.0\staticwebassets\msbuild.build.NeoRMS.props
+G:\Office work - Copy\RMS neo\NeoRMS\NeoRMS\obj\Debug\net7.0\staticwebassets\msbuild.buildMultiTargeting.NeoRMS.props
+G:\Office work - Copy\RMS neo\NeoRMS\NeoRMS\obj\Debug\net7.0\staticwebassets\msbuild.buildTransitive.NeoRMS.props
+G:\Office work - Copy\RMS neo\NeoRMS\NeoRMS\obj\Debug\net7.0\staticwebassets.pack.json
+G:\Office work - Copy\RMS neo\NeoRMS\NeoRMS\obj\Debug\net7.0\staticwebassets.build.json
+G:\Office work - Copy\RMS neo\NeoRMS\NeoRMS\obj\Debug\net7.0\staticwebassets.development.json
+G:\Office work - Copy\RMS neo\NeoRMS\NeoRMS\obj\Debug\net7.0\scopedcss\Charts\Gauge.razor.rz.scp.css
+G:\Office work - Copy\RMS neo\NeoRMS\NeoRMS\obj\Debug\net7.0\scopedcss\Pages\BuildingManagement.razor.rz.scp.css
+G:\Office work - Copy\RMS neo\NeoRMS\NeoRMS\obj\Debug\net7.0\scopedcss\Pages\Communication.razor.rz.scp.css
+G:\Office work - Copy\RMS neo\NeoRMS\NeoRMS\obj\Debug\net7.0\scopedcss\Pages\Dashboard.razor.rz.scp.css
+G:\Office work - Copy\RMS neo\NeoRMS\NeoRMS\obj\Debug\net7.0\scopedcss\Pages\Judiciary.razor.rz.scp.css
+G:\Office work - Copy\RMS neo\NeoRMS\NeoRMS\obj\Debug\net7.0\scopedcss\Pages\LegalPage.razor.rz.scp.css
+G:\Office work - Copy\RMS neo\NeoRMS\NeoRMS\obj\Debug\net7.0\scopedcss\Pages\Maintenance.razor.rz.scp.css
+G:\Office work - Copy\RMS neo\NeoRMS\NeoRMS\obj\Debug\net7.0\scopedcss\Pages\Ownerdetail.razor.rz.scp.css
+G:\Office work - Copy\RMS neo\NeoRMS\NeoRMS\obj\Debug\net7.0\scopedcss\Pages\Property.razor.rz.scp.css
+G:\Office work - Copy\RMS neo\NeoRMS\NeoRMS\obj\Debug\net7.0\scopedcss\Pages\PropertyDetail.razor.rz.scp.css
+G:\Office work - Copy\RMS neo\NeoRMS\NeoRMS\obj\Debug\net7.0\scopedcss\Pages\QuickInfo.razor.rz.scp.css
+G:\Office work - Copy\RMS neo\NeoRMS\NeoRMS\obj\Debug\net7.0\scopedcss\Pages\RentalDetail.razor.rz.scp.css
+G:\Office work - Copy\RMS neo\NeoRMS\NeoRMS\obj\Debug\net7.0\scopedcss\Pages\RentalManagement.razor.rz.scp.css
+G:\Office work - Copy\RMS neo\NeoRMS\NeoRMS\obj\Debug\net7.0\scopedcss\Pages\Revenue.razor.rz.scp.css
+G:\Office work - Copy\RMS neo\NeoRMS\NeoRMS\obj\Debug\net7.0\scopedcss\Pages\Rooms.razor.rz.scp.css
+G:\Office work - Copy\RMS neo\NeoRMS\NeoRMS\obj\Debug\net7.0\scopedcss\Pages\Termination.razor.rz.scp.css
+G:\Office work - Copy\RMS neo\NeoRMS\NeoRMS\obj\Debug\net7.0\scopedcss\Shared\Calendar.razor.rz.scp.css
+G:\Office work - Copy\RMS neo\NeoRMS\NeoRMS\obj\Debug\net7.0\scopedcss\Shared\CalendarWeek.razor.rz.scp.css
+G:\Office work - Copy\RMS neo\NeoRMS\NeoRMS\obj\Debug\net7.0\scopedcss\Shared\MainLayout.razor.rz.scp.css
+G:\Office work - Copy\RMS neo\NeoRMS\NeoRMS\obj\Debug\net7.0\scopedcss\Shared\Modals.razor.rz.scp.css
+G:\Office work - Copy\RMS neo\NeoRMS\NeoRMS\obj\Debug\net7.0\scopedcss\Shared\NavMenu.razor.rz.scp.css
+G:\Office work - Copy\RMS neo\NeoRMS\NeoRMS\obj\Debug\net7.0\scopedcss\bundle\NeoRMS.styles.css
+G:\Office work - Copy\RMS neo\NeoRMS\NeoRMS\obj\Debug\net7.0\scopedcss\projectbundle\NeoRMS.bundle.scp.css
+G:\Office work - Copy\RMS neo\NeoRMS\NeoRMS\obj\Debug\net7.0\NeoRMS.csproj.CopyComplete
+G:\Office work - Copy\RMS neo\NeoRMS\NeoRMS\obj\Debug\net7.0\NeoRMS.dll
+G:\Office work - Copy\RMS neo\NeoRMS\NeoRMS\obj\Debug\net7.0\refint\NeoRMS.dll
+G:\Office work - Copy\RMS neo\NeoRMS\NeoRMS\obj\Debug\net7.0\NeoRMS.pdb
+G:\Office work - Copy\RMS neo\NeoRMS\NeoRMS\obj\Debug\net7.0\NeoRMS.genruntimeconfig.cache
+G:\Office work - Copy\RMS neo\NeoRMS\NeoRMS\obj\Debug\net7.0\ref\NeoRMS.dll

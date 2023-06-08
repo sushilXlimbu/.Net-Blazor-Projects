@@ -1,0 +1,133 @@
+﻿/*inform-card*/
+
+.inform-card .icon {
+    color: var(--primary-color);
+    font-size: 30px;
+   
+}
+
+
+.page-link {
+    padding: 0.25rem 0.5rem !important;
+    font-size: 0.8rem !important;
+}
+
+.calendar .card-content {
+    padding: 0px 0px 0px !important;
+}
+
+.inform-card .card-body span {
+    font-size: 0.8rem;
+    font-weight: 400;
+    color:forestgreen;
+
+}
+
+.card .card-content {
+  
+    position: relative;
+}
+
+
+.streamline .sl-primary {
+    border-left-color: #188ae2;
+}
+
+.streamline .sl-item {
+    position: relative;
+    padding-bottom: 5px;
+    border-left: 1px solid #ccc;
+}
+
+    .streamline .sl-item:before {
+        content: '';
+        position: absolute;
+        left: -6px;
+        top: 0;
+        background-color: #ccc;
+        width: 12px;
+        height: 12px;
+        border-radius: 100%;
+    }
+
+.streamline .sl-primary:before, .streamline .sl-primary:last-child:after {
+    background-color: #188ae2;
+}
+
+
+.streamline .sl-danger:before, .streamline .sl-danger:last-child:after {
+    background-color: #ff5b5b;
+}
+
+.streamline .sl-success {
+    border-left-color: #10c469;
+}
+
+    .streamline .sl-success:before, .streamline .sl-success:last-child:after {
+        background-color: #10c469;
+    }
+
+.streamline .sl-warning {
+    border-left-color: #f9c851;
+}
+
+    .streamline .sl-warning:before, .streamline .sl-warning:last-child:after {
+        background-color: #f9c851;
+    }
+
+.streamline .sl-danger {
+    border-left-color: #ff5b5b;
+}
+
+.streamline .sl-item .sl-content {
+    margin-left: 24px;
+}
+
+.streamline .sl-item .text-muted {
+    color: inherit;
+    opacity: .6;
+    font-size: 10px;
+}
+
+.streamline .sl-item p {
+    font-size: 13px;
+    color: #333;
+    margin-bottom: .25rem !important;
+}
+
+
+.card .card-header-text h4 {
+    margin-top: 0;
+    margin-bottom: 3px;
+    font-size: 1rem;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+
+.card .card-header {
+    padding: 15px 20px 0;
+    z-index: 3;
+    background-color: #fff !important;
+    /*border-bottom: none;*/
+}
+
+
+.card-body .fa-house {
+    color: cadetblue;
+}
+
+.card-body .fa-ban {
+     color:mediumpurple;
+}
+
+
+.card-body .fa-screwdriver-wrench {
+    color: teal;
+}
+
+
+.card-body .fa-circle-check {
+    color: indigo;
+}
+

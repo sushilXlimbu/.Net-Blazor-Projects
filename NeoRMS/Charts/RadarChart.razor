@@ -1,0 +1,102 @@
+﻿@*@page "/radar"
+@using ChartJs.Blazor.RadarChart
+
+
+<div style="width:400px">
+    <Chart Config="_radarConfig"></Chart>
+</div>
+
+@code {
+
+    private RadarConfig _radarConfig;
+
+    protected override void OnInitialized()
+    {
+        ConfigureRadarConfig();
+    }
+
+    private void ConfigureRadarConfig()
+    {
+        _radarConfig = new RadarConfig
+            {
+                Options = new RadarOptions
+                {
+                    Responsive = true,
+                    Title = new OptionsTitle
+                    {
+                        Display = false,
+                        Text = "Data",
+                    },
+                    Legend = new Legend
+                    {
+                        Display = true,
+                        Position = Position.Right,
+                    }
+                }
+            };
+
+
+        // datasets
+
+        string[] _labels = { "Label 1", "Label 2", "Label 3", "Label 4", "Label 5" };
+        int[] _values = { 10, 20, 15, 25, 30 };
+
+
+        string[] labels2 = { "Label 6", "Label 7", "Label 8", "Label 9", "Label 10" };
+        int[] values2 = { 5, 15, 10, 20, 25 };
+
+        string[] labels3 = { "Label 11", "Label 12", "Label 13", "Label 14", "Label 15" };
+        int[] values3 = { 20, 10, 25, 5, 15 };
+
+
+        foreach (string data in _labels)
+        {
+            _radarConfig.Data.Labels.Add(data);
+        }
+
+
+        RadarDataset<int> dataset = new RadarDataset<int>(_values)
+            {
+                Label = "Data",
+                Fill = true,
+                BorderColor = ColorUtil.ColorHexString(54, 162, 235),
+                PointBackgroundColor = ColorUtil.ColorHexString(54, 162, 235),
+                PointBorderColor = "#fff",
+                PointHoverBackgroundColor = "#fff",
+                PointHoverBorderColor = ColorUtil.ColorHexString(54, 162, 235),
+                //BackgroundColor = ColorUtil.ColorHexString(168, 168, 168),
+
+            };
+
+
+
+        RadarDataset<int> dataset2 = new RadarDataset<int>(values2)
+            {
+                Label = "Data 2",
+                Fill = true,
+                BorderColor = ColorUtil.ColorHexString(255, 99, 132),
+                PointBackgroundColor = ColorUtil.ColorHexString(255, 99, 132),
+                PointBorderColor = "#fff",
+                PointHoverBackgroundColor = "#fff",
+                PointHoverBorderColor = ColorUtil.ColorHexString(255, 99, 132),
+                //BackgroundColor = ColorUtil.ColorHexString(209, 214, 230), 
+            };
+
+        RadarDataset<int> dataset3 = new RadarDataset<int>(values3)
+            {
+                Label = "Data 3",
+                Fill = true,
+                BorderColor = ColorUtil.ColorHexString(75, 192, 192),
+                PointBackgroundColor = ColorUtil.ColorHexString(75, 192, 192),
+                PointBorderColor = "#fff",
+                PointHoverBackgroundColor = "#fff",
+                PointHoverBorderColor = ColorUtil.ColorHexString(75, 192, 192),
+                //BackgroundColor = ColorUtil.ColorHexString(216, 254, 224), 
+            };
+
+        _radarConfig.Data.Datasets.Add(dataset);
+        _radarConfig.Data.Datasets.Add(dataset2);
+        _radarConfig.Data.Datasets.Add(dataset3);
+    }
+}
+*@

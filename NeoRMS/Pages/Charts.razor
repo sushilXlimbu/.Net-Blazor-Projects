@@ -1,0 +1,127 @@
+﻿@page "/charts"
+@inherits ChartsBase
+
+<div class="mt-3 px-3">
+    <div class="row">
+    
+        <div class="col-lg-8 mt-3">
+
+
+            <div class="row">
+
+                <div class="col-lg-12 mt-2">
+                    <div class="card">
+                        <div class="card-header py-2 d-flex justify-content-between align-items-center card-header-text">
+                            <h6 class="card-title text-success">Timeline Chart</h6>
+                            <div>
+                                <a class="page-link" href="#"><i class="fa fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+                        <div class="card-content d-flex justify-content-center py-4">
+                            <TimeLineChart></TimeLineChart>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="col-lg-12 mt-4">
+                    <div class="card">
+                        <div class="card-header py-2 d-flex justify-content-between align-items-center card-header-text">
+                            <h6 class="card-title text-success"> Rental Income </h6>
+                            <div>
+                                <a class="page-link" href="#"><i class="fa fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+                        <div class="card-content d-flex justify-content-center py-4">
+                            <BarChart></BarChart>
+                        </div>
+                    </div>
+                </div>
+                
+                
+                <div class="col-lg-12 mt-4">
+                    <div class="card">
+                        <div class="card-header py-2 d-flex justify-content-between align-items-center card-header-text">
+                            <h6 class="card-title text-success"> Horizontal Bar Chart </h6>
+                            <div>
+                                <a class="page-link" href="#"><i class="fa fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+                        <div class="card-content d-flex justify-content-center py-4">
+                            <HorizontalBarChart></HorizontalBarChart>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+
+        <div class="col-lg-4 mt-2">
+
+
+            <div class="col-lg-12 mt-3">
+                <div class="card">
+                    <div class="card-header py-2 d-flex justify-content-between align-items-center card-header-text">
+                        <h6 class="card-title text-success">Rental Status</h6>
+                        <div>
+                            <a class="page-link" href="#"><i class="fa fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                    <div class="card-content d-flex justify-content-center  my-2">
+                        <DoughChart></DoughChart>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-12 mt-4">
+                <div class="card">
+                    <div class="card-header py-2 d-flex justify-content-between align-items-center card-header-text">
+                        <h6 class="card-title text-success">Tenant Feedback </h6>
+                        <div>
+                            <a class="page-link" href="#"><i class="fa fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                    <div class="card-content d-flex justify-content-center  my-2">
+                        <PieChart _datas=@_datas _values=@_values></PieChart>
+                    </div>
+                </div>
+            </div> 
+            
+            
+@*            <div class="col-lg-12 mt-4">
+                <div class="card">
+                    <div class="card-header py-2 d-flex justify-content-between align-items-center card-header-text">
+                        <h6 class="card-title text-success">Radar Chart </h6>
+                        <div>
+                            <a class="page-link" href="#"><i class="fa fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                    <div class="card-content d-flex justify-content-center  my-2">
+                        <RadarChart></RadarChart>
+                    </div>
+                </div>
+            </div>*@
+
+
+
+            <div class="col-lg-12 mt-3">
+                <div class="card">
+                    <div class="card-header py-2 d-flex justify-content-between align-items-center card-header-text">
+                        <h6 class="card-title text-success"> Expenses</h6>
+                        <div>
+                            <a class="page-link" href="#"><i class="fa fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                    <div class="card-content d-flex justify-content-center my-2">
+                        <PolarChart></PolarChart>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+
+        
+    </div>
+</div>

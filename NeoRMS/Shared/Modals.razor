@@ -1,0 +1,91 @@
+﻿<div class="modal fade show" style="display:block ; background-color: rgb(10,10,10,0.8);" aria-modal="true" role="dialog">
+    <div class="modal-dialog @ModalSize">
+        <div class="modal-content">
+            <div class="modal-header" style="padding: .5rem !important">
+                <h6 class="modal-title px-2" style="font-size: 1.1rem !important">
+                    <i class="mx-1 fa @Icon"> </i>
+                    @Title
+                </h6>
+                @*<button type="button" class="close" aria-label="Close" @onclick="closeModal">
+                <span aria-hidden="true">&times;</span>
+                </button>*@
+            </div>
+            <div class="modal-body px-3">
+                @ChildContent
+            </div>
+            <div class="modal-footer px-2">
+                @switch (Type)
+                {
+                    case Category.Okay:
+                        <button type="button" class="btn btn-primary" @onclick="Ok">Okay</button>
+                        break;
+                    case Category.Save:
+                        <button type="button" class="btn btn-primary-custom" @onclick="Ok">Save</button>
+                        <button type="button" class="btn btn-danger-custom" @onclick="closeModal">Cancel</button>
+                        break;
+                    case Category.Delete:
+                        <button type="button" class="btn btn-danger" @onclick="Ok">Delete</button>
+                        <button type="button" class="btn btn-warning" @onclick="closeModal">Cancel</button>
+                        break;
+                    case Category.Agree:
+                        <button type="button" class="btn btn-primary" @onclick="Ok">Agree</button>
+                        <button type="button" class="btn btn-danger" @onclick="closeModal">Disagree</button>
+                        break;
+                    case Category.Submit:
+                        <button type="button" class="btn btn-primary-custom" @onclick="Ok">Submit</button>
+                        <button type="button" class="btn btn-danger" @onclick="closeModal">Cancel</button>
+                        break;
+                    case Category.Add:
+                        <button type="button" class="btn btn-primary-custom" @onclick="Ok">Add</button>
+                        <button type="button" class="btn btn-danger-custom" @onclick="closeModal">Cancel</button>
+                        break;
+                    default:
+                        <button type="button" class="btn btn-primary" @onclick="Ok">Okay</button>
+                        break;
+                }
+            </div>
+        </div>
+    </div>
+
+</div>
+
+@code {
+    [Parameter]
+    public string Title { get; set; }
+
+    [Parameter]
+    public string Icon { get; set; }
+
+    [Parameter]
+    public string ModalSize { get; set; }
+
+    [Parameter]
+    public RenderFragment ChildContent { get; set; }
+
+    [Parameter]
+    public EventCallback<bool> OnClose { get; set; }
+
+    [Parameter]
+    public Category Type { get; set; }
+
+    private Task closeModal()
+    {
+        return OnClose.InvokeAsync(false);
+    }
+
+    private Task Ok()
+    {
+        return OnClose.InvokeAsync(true);
+    }
+
+    public enum Category
+    {
+        Okay,
+        Save,
+        Delete,
+        Agree,
+        Submit,
+        Add
+    }
+
+}

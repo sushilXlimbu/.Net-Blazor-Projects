@@ -1,0 +1,80 @@
+﻿
+@page "/horizontal-bar"
+
+@using ChartJs.Blazor.BarChart
+@using ChartJs.Blazor.BarChart.Axes
+@using ChartJs.Blazor.Common.Enums
+
+<div style="width: 600px; height: 400px">
+    <Chart Config="_barConfig"></Chart>
+</div>
+
+@code {
+
+    private BarConfig _barConfig = new BarConfig(true);
+
+    protected override void OnInitialized()
+    {
+        ConfigureBarConfig();
+    }
+
+    private void ConfigureBarConfig()
+    {
+        _barConfig = new BarConfig(true)
+            {
+                Options = new BarOptions
+                {
+                    Responsive = true,
+                    Title = new OptionsTitle
+                    {
+                        Display = true,
+                        Text = "Incomes"
+                    },
+                    Scales = new BarScales
+                    {
+                        XAxes = new List<CartesianAxis>
+                        {
+                            new BarLinearCartesianAxis
+                            {
+                                ScaleLabel = new ScaleLabel
+                                {
+                                    Display = true,
+                                    LabelString = "Amount"
+                                }
+                            }
+                        }
+                    },
+                    Legend = new Legend
+                    {
+                        Display = false
+                    }
+                }
+            };
+        string[] _datas = { "Rental Rate Comparison", "Maintainance Response Time","Lease Expiration","Reservation Status", "Maintainance History" };
+
+        foreach (string room in _datas)
+        {
+            _barConfig.Data.Labels.Add(room);
+        }
+
+        int[] _values = { 45, 60, 70, 90, 79,  0 };
+
+        BarDataset<int> dataset = new BarDataset<int>(_values, true)
+            {
+                BackgroundColor = new[]
+                {
+                ColorUtil.ColorHexString(255,91,91),
+                ColorUtil.ColorHexString(16,196,105),
+                ColorUtil.ColorHexString(249,200,81),
+                ColorUtil.ColorHexString(75,192,192),
+                ColorUtil.ColorHexString(102, 140, 255),
+
+            }
+            };
+
+
+        _barConfig.Data.Datasets.Add(dataset);
+
+    }
+
+}

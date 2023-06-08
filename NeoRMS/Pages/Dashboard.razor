@@ -1,0 +1,288 @@
+﻿@page "/dashboard"
+@inherits DashboardBase
+
+<div class="mt-3 px-3">
+
+    <div class="row inform-card my-3">
+        <div class="col-lg-2 col-md-6 col-10 mx-auto">
+            <div class="card">
+                <a href=""> 
+                <div class="card-body">
+                    <div class="flex d-flex justify-content-center">
+                            <i class="fa fa-money-bills sl-danger icon"></i>
+                        <div class="side-text align-items-center ms-3">
+                            <span>Total Income</span>
+                            <h5>100000 </h5>
+                        </div>
+                    </div>
+                </div>
+                </a>
+            </div>
+        </div>
+        <div class="col-lg-2 col-md-6 col-10 mx-auto">
+            <div class="card">
+                <div class="card-body">
+                    <div class="flex d-flex justify-content-center">
+                        <i class="fa fa-money-bill icon sl-warning"></i>
+                        <div class="side-text align-items-center ms-3">
+                            <span>Rent Due</span>
+                            <h5>4 </h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-2 col-md-6 col-10 mx-auto">
+            <div class="card">
+                <div class="card-body">
+                    <div class="flex d-flex justify-content-center">
+                        <i class="fa fa-house icon "></i>
+                        <div class="side-text align-items-center ms-3">
+                            <span>Property</span>
+                            <h5>2 </h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-2 col-md-6 col-10 mx-auto">
+            <div class="card">
+                <div class="card-body">
+                    <div class="flex d-flex justify-content-center">
+                        <i class="fa fa-ban icon"></i>
+                        <div class="side-text align-items-center ms-3">
+                            <span>Block</span>
+                            <h5>4 </h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-2 col-md-6 col-10 mx-auto">
+            <div class="card">
+                <div class="card-body">
+                    <div class="flex d-flex justify-content-center">
+                        <i class="fa fa-screwdriver-wrench icon "></i>
+                        <div class="side-text align-items-center ms-3">
+                            <span>Maintenance</span>
+                            <h5>1 </h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-2 col-md-6 col-10 mx-auto">
+            <div class="card">
+                <div class="card-body">
+                    <div class="flex d-flex justify-content-center">
+                        <i class="fa fa-circle-check icon"></i>
+                        <div class="side-text align-items-center ms-3">
+                            <span>Checked</span>
+                            <h5>4 </h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+
+        <div class="col-lg-3" style="min-height:300px;">
+            <div class="card">
+                <div class="card-header py-2 d-flex justify-content-between align-items-center card-header-text ">
+                    <h4 class="card-title text-success">Complaints</h4>
+                    <div>
+                        <a class="page-link" href="#"><i class="fa fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="card-content py-2">
+                    <div class="streamline">
+                        <div class="sl-item sl-primary">
+                            <div class="sl-content">
+                                <small class="text-muted">5 mins ago</small>
+                                <p>The heating system in my apartment is not working properly, and despite multiple requests, no action has been taken to fix it.</p>
+                            </div>
+                        </div>
+                        <div class="sl-item sl-danger">
+                            <div class="sl-content">
+                                <small class="text-muted">25 mins ago</small>
+                                <p>The water pressure in my shower is very low, and it takes a long time to get hot water.</p>
+                            </div>
+                        </div>
+                        <div class="sl-item sl-success">
+                            <div class="sl-content">
+                                <small class="text-muted">40 mins ago</small>
+                                <p>The common areas in the building, such as the lobby and hallways, are not being cleaned regularly.</p>
+                            </div>
+                        </div>
+                        <div class="sl-item">
+                            <div class="sl-content">
+                                <small class="text-muted">45 minutes ago</small>
+                                <p>There is a constant noise coming from the neighbors, which is disrupting my sleep and making it difficult to concentrate on work.</p>
+                            </div>
+                        </div>
+                        <div class="sl-item sl-warning">
+                            <div class="sl-content">
+                                <small class="text-muted">55 mins ago</small>
+                                <p>The security of the building is not up to the mark, and there have been multiple instances of unauthorized people entering the premises.</p>
+                            </div>
+                        </div>
+                        <div class="sl-item sl-primary">
+                            <div class="sl-content">
+                                <small class="text-muted">55 mins ago</small>
+                                <p>The parking lot is always full, and there are no designated spots for residents.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="col-lg-6">
+            <div class="card">
+                <div class="card-header py-2 d-flex justify-content-between align-items-center card-header-text">
+                    <h4 class="card-title text-success"><span> Analytics and Insights </span></h4>
+                    <div>
+                        <a class="page-link" href="#"><i class="fa fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="card-content d-flex justify-content-between py-4 px-5">
+                    <div class="col-lg-3">
+                        <Gauge gaugeValue="70"></Gauge>
+                        <div class="text-center mt-3">
+                            <h6 class="mb-0 text-center primary-color" style="font-size:0.9rem">Rooms Occupied</h6>
+                        </div>
+                    </div>
+                    <div class="col-lg-3">
+                        <Gauge gaugeValue="100"></Gauge>
+                        <div class="text-center mt-3">
+                            <h6 class="mb-0 text-center primary-color" style="font-size:0.9rem">Pending Tasks</h6>
+                        </div>
+                    </div>  
+                    <div class="col-lg-3">
+                        <Gauge gaugeValue="20"></Gauge>
+                        <div class="text-center mt-3">
+                            <h6 class="mb-0 text-center primary-color" style="font-size:0.9rem">Rents Collected</h6>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <CalendarWeek />
+
+        </div>
+
+
+        <div class="col-lg-3">
+            <div class="card">
+                <div class="card-header py-2 d-flex justify-content-between align-items-center card-header-text">
+                    <h4 class="card-title text-success">Upcoming Rents</h4>
+                    <div>
+                        <a class="page-link" href="#"><i class="fa fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="card-content">
+                    <div class="py-1 d-flex align-items-center border-bottom">
+                        <div class="d-flex align-items-center">
+                            <img class="avatar lg rounded-circle img-thumbnail" src="/images/avatar/avatar2.jpg" width="40" height="40" alt="profile">
+                            <div class="d-flex flex-column ps-3">
+                                <h6 class="mb-0" style="font-size:0.9rem">Birat Kunwar</h6>
+                                <div class="time-block text-truncate">
+                                    <i class="fa fa-money-bill"></i> <span class="ms-1" style="font-size:0.8rem">2023/04/29</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="py-2 d-flex align-items-center border-bottom">
+                        <div class="d-flex align-items-center">
+                            <img class="rounded-circle img-thumbnail" src="/images/avatar/avatar6.jpg" width="40" height="40" alt="profile">
+                            <div class="d-flex flex-column ps-3">
+                                <h6 class="mb-0" style="font-size:0.9rem">Rajani Shrestha</h6>
+                                <div class="time-block text-truncate">
+                                    <i class="fa fa-money-bill"></i> <span class="ms-1" style="font-size:0.8rem">2023/05/19</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="py-2 d-flex align-items-center border-bottom">
+                        <div class="d-flex align-items-center">
+                            <img class="avatar lg rounded-circle img-thumbnail" src="/images/avatar/avatar3.jpg" width="40" height="40" alt="profile">
+                            <div class="d-flex flex-column ps-3">
+                                <h6 class="mb-0" style="font-size:0.9rem">Aayush Shiwakoti</h6>
+                                <div class="time-block text-truncate">
+                                    <i class="fa fa-money-bill"></i> <span class="ms-1" style="font-size:0.8rem">2023/05/22</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="py-2 d-flex align-items-center border-bottom">
+                        <div class="d-flex align-items-center">
+                            <img class="avatar lg rounded-circle img-thumbnail" src="/images/avatar/avatar4.jpg" width="40" height="40" alt="profile">
+                            <div class="d-flex flex-column ps-3">
+                                <h6 class="mb-0" style="font-size:0.9rem">Elisa Pradhan</h6>
+                                <div class="time-block text-truncate">
+                                    <i class="fa fa-money-bill"></i> <span class="ms-1" style="font-size:0.8rem">2023/05/25</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="py-2 d-flex align-items-center border-bottom">
+                        <div class="d-flex align-items-center">
+                            <img class="avatar lg rounded-circle img-thumbnail" src="/images/avatar/avatar2.jpg" width="40" height="40" alt="profile">
+                            <div class="d-flex flex-column ps-3">
+                                <h6 class="mb-0" style="font-size:0.9rem">Natalie Gibson</h6>
+                                <div class="time-block text-truncate">
+                                    <i class="fa fa-money-bill"></i> <span class="ms-1" style="font-size:0.8rem">2023/05/25</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>                        
+                    <div class="pt-2 d-flex align-items-center">
+                        <div class="d-flex align-items-center">
+                            <img class="avatar lg rounded-circle img-thumbnail" src="/images/avatar/avatar5.jpg" width="40" height="40" alt="profile">
+                            <div class="d-flex flex-column ps-3">
+                                <h6 class="mb-0" style="font-size:0.9rem">Asmi Shrestha</h6>
+                                <div class="time-block text-truncate">
+                                    <i class="fa fa-money-bill"></i> <span class="ms-1" style="font-size:0.8rem">2023/05/27</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-6 mt-3">
+            <div class="card">
+                <div class="card-header py-2 d-flex justify-content-between align-items-center card-header-text">
+                    <h4 class="card-title text-success">Rooms used</h4>
+                    <div>
+                       <a class="page-link" href="#"><i class="fa fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="card-content d-flex justify-content-center py-4">
+                        <TimeLineChart></TimeLineChart>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="col-lg-6 mt-3">
+            <div class="card">
+                <div class="card-header py-2 d-flex justify-content-between align-items-center card-header-text">
+                    <h4 class="card-title text-success">Room Status</h4>
+                    <div>
+                       <a class="page-link" href="#"><i class="fa fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="card-content d-flex justify-content-center py-4">
+                    <DoughChart></DoughChart>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+

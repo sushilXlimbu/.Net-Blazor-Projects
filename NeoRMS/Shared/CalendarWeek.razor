@@ -1,0 +1,70 @@
+﻿@page "/calendarweek"
+@using System.Globalization
+@inherits CalendarWeekBase
+
+<div class="card calendar mt-2">
+    <div class="card-header py-2 d-flex justify-content-between align-items-center card-header-text">
+        <div>
+            <button class="page-link" @onclick="prevWeek" style="font-size: 0.8rem"><i class="fa fa-arrow-left"></i></button>
+        </div>
+        <h4 class="card-title text-success">Calendar - <span> @todayDate </span></h4>
+        <div>
+            <button class="page-link" @onclick="nextWeek" style="font-size: 0.8rem"><i class="fa fa-arrow-right"></i></button>
+        </div>
+
+
+    </div>
+    <div class="card-content mt-2">
+        <div class="">
+            <table class="table table-sm" style="border-collapse: separate">
+                <thead>
+                    <tr>
+                        <td>Sun</td>
+                        <td>Mon</td>
+                        <td>Tue</td>
+                        <td>Wed</td>
+                        <td>Thu</td>
+                        <td>Fri</td>
+                        <td>Sat</td>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    @{
+                        if (currentWeekIndex >= 0 && currentWeekIndex < weeks.Count)
+                        {
+                            var week = weeks[currentWeekIndex];
+                            <tr>
+                                @foreach (var day in week.Dates)
+                                {
+                                    var dateString = day.DateValue;
+                                    var selectedDate = DateTime.MinValue;
+                                    if (!string.IsNullOrEmpty(dateString))
+                                    {
+                                        selectedDate = DateTime.ParseExact(dateString, "dd-MMM-yyyy", CultureInfo.InvariantCulture);
+                                    }
+                                    <td @onclick="@(string.IsNullOrEmpty(dateString) ? (Action)null : (() => NavigatetoRoom(selectedDate)))">
+                                        @if (selectedDate == DateTime.Today)
+                                        {
+                                            <p class="today">@selectedDate.Day</p>
+                                        }
+                                        else
+                                        {
+                                            <p> @selectedDate.Day </p>
+                                        }
+
+                                    </td>
+                                }
+                            </tr>
+                        }
+                    }
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+</div>
+
+
+
+

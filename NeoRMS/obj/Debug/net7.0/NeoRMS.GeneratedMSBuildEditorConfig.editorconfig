@@ -1,0 +1,161 @@
+is_global = true
+build_property.TargetFramework = net7.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = NeoRMS
+build_property.RootNamespace = NeoRMS
+build_property.ProjectDir = G:\Office work - Copy\RMS neo\NeoRMS\NeoRMS\
+build_property.RazorLangVersion = 7.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = G:\Office work - Copy\RMS neo\NeoRMS\NeoRMS
+build_property._RazorSourceGeneratorDebug = 
+
+[G:/Office work - Copy/RMS neo/NeoRMS/NeoRMS/App.razor]
+build_metadata.AdditionalFiles.TargetPath = QXBwLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/Office work - Copy/RMS neo/NeoRMS/NeoRMS/Charts/BarChart.razor]
+build_metadata.AdditionalFiles.TargetPath = Q2hhcnRzXEJhckNoYXJ0LnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/Office work - Copy/RMS neo/NeoRMS/NeoRMS/Charts/DoughChart.razor]
+build_metadata.AdditionalFiles.TargetPath = Q2hhcnRzXERvdWdoQ2hhcnQucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/Office work - Copy/RMS neo/NeoRMS/NeoRMS/Charts/HorizontalBarChart.razor]
+build_metadata.AdditionalFiles.TargetPath = Q2hhcnRzXEhvcml6b250YWxCYXJDaGFydC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/Office work - Copy/RMS neo/NeoRMS/NeoRMS/Charts/PieChart.razor]
+build_metadata.AdditionalFiles.TargetPath = Q2hhcnRzXFBpZUNoYXJ0LnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/Office work - Copy/RMS neo/NeoRMS/NeoRMS/Charts/PieChartSec.razor]
+build_metadata.AdditionalFiles.TargetPath = Q2hhcnRzXFBpZUNoYXJ0U2VjLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/Office work - Copy/RMS neo/NeoRMS/NeoRMS/Charts/PolarChart.razor]
+build_metadata.AdditionalFiles.TargetPath = Q2hhcnRzXFBvbGFyQ2hhcnQucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/Office work - Copy/RMS neo/NeoRMS/NeoRMS/Charts/RadarChart.razor]
+build_metadata.AdditionalFiles.TargetPath = Q2hhcnRzXFJhZGFyQ2hhcnQucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/Office work - Copy/RMS neo/NeoRMS/NeoRMS/Charts/TimeLineChart.razor]
+build_metadata.AdditionalFiles.TargetPath = Q2hhcnRzXFRpbWVMaW5lQ2hhcnQucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/Office work - Copy/RMS neo/NeoRMS/NeoRMS/Pages/Charts.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ2hhcnRzLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/Office work - Copy/RMS neo/NeoRMS/NeoRMS/Pages/Counter.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ291bnRlci5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/Office work - Copy/RMS neo/NeoRMS/NeoRMS/Pages/Index.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXgucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/Office work - Copy/RMS neo/NeoRMS/NeoRMS/_Imports.razor]
+build_metadata.AdditionalFiles.TargetPath = X0ltcG9ydHMucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/Office work - Copy/RMS neo/NeoRMS/NeoRMS/Charts/Gauge.razor]
+build_metadata.AdditionalFiles.TargetPath = Q2hhcnRzXEdhdWdlLnJhem9y
+build_metadata.AdditionalFiles.CssScope = b-l2nk5fdozy
+
+[G:/Office work - Copy/RMS neo/NeoRMS/NeoRMS/Pages/BuildingManagement.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQnVpbGRpbmdNYW5hZ2VtZW50LnJhem9y
+build_metadata.AdditionalFiles.CssScope = b-ayj17zxjz4
+
+[G:/Office work - Copy/RMS neo/NeoRMS/NeoRMS/Pages/Communication.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ29tbXVuaWNhdGlvbi5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = b-27hciwvwgp
+
+[G:/Office work - Copy/RMS neo/NeoRMS/NeoRMS/Pages/Dashboard.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRGFzaGJvYXJkLnJhem9y
+build_metadata.AdditionalFiles.CssScope = b-6ttq4i7yo7
+
+[G:/Office work - Copy/RMS neo/NeoRMS/NeoRMS/Pages/Judiciary.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSnVkaWNpYXJ5LnJhem9y
+build_metadata.AdditionalFiles.CssScope = b-dkjdrnxauj
+
+[G:/Office work - Copy/RMS neo/NeoRMS/NeoRMS/Pages/LegalPage.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTGVnYWxQYWdlLnJhem9y
+build_metadata.AdditionalFiles.CssScope = b-tjrch3dyyn
+
+[G:/Office work - Copy/RMS neo/NeoRMS/NeoRMS/Pages/Maintenance.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTWFpbnRlbmFuY2UucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-65aqdb5qed
+
+[G:/Office work - Copy/RMS neo/NeoRMS/NeoRMS/Pages/Ownerdetail.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcT3duZXJkZXRhaWwucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-x32p1qh2uj
+
+[G:/Office work - Copy/RMS neo/NeoRMS/NeoRMS/Pages/Property.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJvcGVydHkucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-pv9zpggjz1
+
+[G:/Office work - Copy/RMS neo/NeoRMS/NeoRMS/Pages/PropertyDetail.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJvcGVydHlEZXRhaWwucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-aabq8m2kqe
+
+[G:/Office work - Copy/RMS neo/NeoRMS/NeoRMS/Pages/QuickInfo.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUXVpY2tJbmZvLnJhem9y
+build_metadata.AdditionalFiles.CssScope = b-4t1k3inz1x
+
+[G:/Office work - Copy/RMS neo/NeoRMS/NeoRMS/Pages/RentalDetail.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUmVudGFsRGV0YWlsLnJhem9y
+build_metadata.AdditionalFiles.CssScope = b-5k0bu1y9t6
+
+[G:/Office work - Copy/RMS neo/NeoRMS/NeoRMS/Pages/RentalManagement.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUmVudGFsTWFuYWdlbWVudC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = b-wdw6z9i5rs
+
+[G:/Office work - Copy/RMS neo/NeoRMS/NeoRMS/Pages/Revenue.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUmV2ZW51ZS5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = b-8v2x3rb1jt
+
+[G:/Office work - Copy/RMS neo/NeoRMS/NeoRMS/Pages/Rooms.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUm9vbXMucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-6xe1rq6tgw
+
+[G:/Office work - Copy/RMS neo/NeoRMS/NeoRMS/Pages/Termination.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVGVybWluYXRpb24ucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-08wc059vcw
+
+[G:/Office work - Copy/RMS neo/NeoRMS/NeoRMS/Shared/Calendar.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXENhbGVuZGFyLnJhem9y
+build_metadata.AdditionalFiles.CssScope = b-4ynpa16ikf
+
+[G:/Office work - Copy/RMS neo/NeoRMS/NeoRMS/Shared/CalendarWeek.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXENhbGVuZGFyV2Vlay5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = b-0da3c0vsxv
+
+[G:/Office work - Copy/RMS neo/NeoRMS/NeoRMS/Shared/MainLayout.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXE1haW5MYXlvdXQucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-z5cxihreaj
+
+[G:/Office work - Copy/RMS neo/NeoRMS/NeoRMS/Shared/Modals.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXE1vZGFscy5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = b-5ozn2608ox
+
+[G:/Office work - Copy/RMS neo/NeoRMS/NeoRMS/Shared/NavMenu.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXE5hdk1lbnUucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-k6d56a6geq
+
+[G:/Office work - Copy/RMS neo/NeoRMS/NeoRMS/Pages/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRXJyb3IuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/Office work - Copy/RMS neo/NeoRMS/NeoRMS/Pages/_Host.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX0hvc3QuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 

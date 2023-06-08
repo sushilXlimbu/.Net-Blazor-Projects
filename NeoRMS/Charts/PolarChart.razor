@@ -1,0 +1,63 @@
+﻿@page "/polar"
+@using ChartJs.Blazor.PolarAreaChart
+@using System.Reflection.Emit;
+
+
+    <Chart Config="_polarConfig"></Chart>
+
+
+@code {
+
+    private PolarAreaConfig _polarConfig;
+
+    protected override void OnInitialized()
+    {
+        ConfigurePolarConfig();
+    }
+
+    private void ConfigurePolarConfig()
+    {
+        _polarConfig = new PolarAreaConfig
+        {
+            Options = new PolarAreaOptions
+            {
+                Responsive = true,
+                Title = new OptionsTitle
+                {
+                        Display = false ,
+                    Text = "Data Distribution",
+                },
+                Legend = new Legend
+                {
+                    Display = true,
+                    Position = Position.Right,
+                }
+            }
+        };
+    
+        string[] labels = { "Operating ", "Legal", "Marketing", "Property Management", "Repairs", "Taxes", "Insurance", "Mortage", "Utilities" };
+
+        foreach(var label in labels)
+        {
+            _polarConfig.Data.Labels.Add(label);
+        }
+
+        int[] dataValues = { 40, 45, 35, 60, 70, 55, 67, 25, 46, 0 };
+
+        PolarAreaDataset<int> dataset = new PolarAreaDataset<int>(dataValues)
+        {
+            BackgroundColor = new[]
+                {ColorUtil.ColorHexString(255,91,91),
+                ColorUtil.ColorHexString(16,196,105),
+                ColorUtil.ColorHexString(249,200,81),
+                ColorUtil.ColorHexString(221,222,216),
+                ColorUtil.ColorHexString(195,195,195),
+                ColorUtil.ColorHexString(24,138,226),
+                ColorUtil.ColorHexString(153,153,255),
+
+            }
+        };
+
+        _polarConfig.Data.Datasets.Add(dataset);
+    }
+}

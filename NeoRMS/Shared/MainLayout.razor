@@ -1,0 +1,70 @@
+﻿@inherits LayoutComponentBase
+
+<PageTitle>NeoRMS</PageTitle>
+
+<div class="page">
+	<div class="sidebar @NavBar ">
+		<NavMenu />
+	</div>
+	<main class="main-body ">
+		<div class="header @NavBar pe-4 bg-primary-color sticky-top no-shadow ">
+
+			@*<Header />*@
+			<div class="page-header col d-flex flex-wrap justify-content-between pb-2  ">
+
+				<div class="col-sm-4 page-title d-flex align-items-center mt-4 ">
+
+					<i class='toggle fa fa-chevron-circle-right' @onclick=TgglNavMenu style="color:white"></i>
+					<!-- Page title -->
+					<div class="ms-2">
+						<a href="/"><i class='fa fa-home fs-5 me-4 '></i></a>
+						<a href="#"><i class='fa fa-bar-chart fs-5 me-4'></i></a>
+						<a href="#"><i class='fa fa-pie-chart fs-5 me-4'></i></a>
+						<a href="#"><i class="fa fa-bed fs-5 me-4"></i></a>
+					</div>
+				</div>
+
+				<!-- attributes -->
+				<div class="page-attribute d-flex align-items-center mt-2">
+					<div class="mx-4 p-header ">
+						<div class="input-group search-box px-1">
+							<span class="input-group-text" id="search-addon"><i class="fa fa-search"></i></span>
+							<input type="text" class="form-field" placeholder="Search..." />
+						</div>
+					</div>
+
+					<div class="me-3">
+						<a href="#"> <i class="fa fa-star fs-5 me-4"></i></a>
+						<a href="#"> <i class="fa fa-bell fs-5 me-4"></i></a>
+						<a href="#"> <i class="fa fa-envelope fs-5 me-4"></i></a>
+						<a href="/calendar"> <i class="fa fa-calendar fs-5 me-4"></i></a>
+					</div>
+					<div class="me-1">
+						<a href="#">
+							<img src="https://i.imgur.com/hczKIze.jpg" alt="team" width="35" class="img-fluid rounded-circle " />
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="">
+			@Body
+		</div>
+	</main>
+
+</div>
+
+
+@code {
+
+	public bool toggleNavMenu = false;
+
+	public string? NavBar => toggleNavMenu ? "close" : null;
+
+	public void TgglNavMenu()
+	{
+		Console.WriteLine(toggleNavMenu);
+		toggleNavMenu = !toggleNavMenu;
+	}
+
+}

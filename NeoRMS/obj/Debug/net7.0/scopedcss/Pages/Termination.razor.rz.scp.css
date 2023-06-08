@@ -1,0 +1,82 @@
+.action .page-link[b-08wc059vcw] {
+    border-radius: 50%;
+    padding: 0.175rem 0.55rem;
+}
+
+.log .page-link[b-08wc059vcw] {
+    border-radius: 8%;
+    padding: 0;
+}
+/* .page-link {
+    border-radius: 50%;
+    padding: 0.375rem 0.75rem;
+}*/
+
+
+.card-body[b-08wc059vcw] {
+    padding: 0;
+}
+
+.table .thead-light td[b-08wc059vcw] {
+    color: #8898aa;
+    border-color: #e9ecef;
+    background-color: #e7f5fe;
+    padding-left: 8px;
+    padding-right: 8px;
+}
+
+tbody[b-08wc059vcw]:before {
+    content: "-";
+    display: block;
+    line-height: .8em;
+    color: transparent;
+}
+
+tbody[b-08wc059vcw] {
+    font-size: .9rem;
+}
+
+.table tbody td[b-08wc059vcw] {
+    color: var(--text-color);
+    padding-left: 8px;
+    padding-right: 8px;
+}
+
+.table tbody tr:first-child[b-08wc059vcw] {
+    border-top: 1px solid #e9ecef;
+}
+
+.badge-dot[b-08wc059vcw] {
+    font-size: .875rem;
+    font-weight: 400;
+    padding-right: 0;
+    padding-left: 0;
+    text-transform: none;
+    background: transparent;
+    color: var(--text-color);
+}
+
+    .badge-dot i[b-08wc059vcw] {
+        display: inline-block;
+        width: .375rem;
+        height: .375rem;
+        margin-right: .375rem;
+        vertical-align: middle;
+        border-radius: 50%;
+    }
+
+.form-field[b-08wc059vcw] {
+    outline: 0;
+    background: transparent;
+    transition: border-color 0.3s;
+    margin-left: 2rem;
+    border: 1px solid #dee2e6;
+    border-radius: 7px;
+    border-bottom-color: #dee2e6 !important;
+}
+
+    .form-field:focus[b-08wc059vcw] {
+        /*border-image: linear-gradient(to right, #38ef7d, #38ef7d);*/
+        border: 1px solid #38ef7d;
+        border-image-slice: 1;
+    }

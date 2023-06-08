@@ -1,0 +1,72 @@
+﻿@page "/dough"
+@using ChartJs.Blazor.PieChart
+@*
+<h3>DoughChart</h3>*@
+
+<div style="width:400px">
+    <Chart Config="_doughConfig"></Chart>
+</div>
+@code {
+
+    private PieConfig _doughConfig;
+
+    protected override void OnInitialized()
+    {
+        ConfigurePieConfig();
+    }
+
+    private void ConfigurePieConfig()
+    {
+        _doughConfig = new PieConfig
+            {
+                Options = new PieOptions
+                {
+                    CutoutPercentage = 50,
+                    Responsive = true,
+                    Title = new OptionsTitle
+                    {
+                        Display = false,
+                        Text = "Datas",
+                    },
+                    Legend = new Legend
+                    {
+                        Display = true,
+                        Position = Position.Right,
+                    }
+                }
+                
+            };
+
+        string[] _datas = { "Vacant Units", "Occupied Units", "Under Repair", "Off-Market" };
+
+        foreach (string data in _datas)
+        {
+            _doughConfig.Data.Labels.Add(data);
+        }
+
+        int[] _value = { 30, 50, 10, 10 };
+
+        PieDataset<int> dataset = new PieDataset<int>(_value)
+            {
+                BackgroundColor = new[]
+                {
+                ColorUtil.ColorHexString(255,91,91),
+                ColorUtil.ColorHexString(16,196,105),
+                ColorUtil.ColorHexString(249,200,81),
+                ColorUtil.ColorHexString(221,222,216),
+                ColorUtil.ColorHexString(195,195,195),
+                ColorUtil.ColorHexString(24,138,226),
+                ColorUtil.ColorHexString(153,153,255),
+
+
+            }
+        };
+
+        _doughConfig.Data.Datasets.Add(dataset);
+
+
+
+
+    }
+
+}

@@ -1,0 +1,136 @@
+﻿@page "/calendar"
+@using System.Globalization;
+@inherits CalendarBase
+
+<PageTitle>Calendar</PageTitle>
+
+<div class="calendar">
+    <div class="container-fluid mt-3">
+@*        <!-- Table -->
+        <h2 class="mb-5">Tables Example</h2>*@
+        <div class="row">
+            <div class="col">
+                <div class="card">
+                    <div class="card-header py-3 d-flex justify-content-between align-items-center">
+                        <div class="d-flex justify-content-between align-items-center">
+
+                            <div class="">
+                                <button class="btn page-link" @onclick="prevMonth" disabled="@disablePrevmonthBtn"> <i class="fa fa-angle-left"></i></button>
+                            </div>
+
+
+                        </div>
+                        <div class="d-flex justify-content-around">
+
+                            <div>
+                                <h3 class="mt-1"> Calendar </h3>
+                            </div>
+                            
+
+                            <div class="mt-1 ms-4">
+                               @* <label for="year&month">Year and Month</label>*@
+                                <select @onchange="@(e => LoadCalendar(e.Value.ToString()))" style="font-size: 1rem; color: #4B9F48;">
+                                    @for (var year = DateTime.Now.Year - 1; year <= DateTime.Now.Year + 1; year++)
+                                    {
+                                        foreach (string month in months)
+                                        {
+                                            var selectedDate = year + " " + month;
+
+                                            if (month != "")
+                                            {
+                                                if (selectedDate == selectedYearandMonth)
+                                                {
+                                                    <option value="@selectedDate" selected="selected">@selectedDate</option>
+                                                }
+                                                else
+                                                {
+                                                    <option value="@selectedDate">@selectedDate</option>
+
+                                                }
+
+
+
+                                            }
+
+                                        }
+                                    }
+                                </select>
+                            </div>
+                        </div>
+                        <div>
+                            <nav aria-label="...">
+                                <ul class="header-addons page-item mb-0">
+                                    <li class="">
+                                        <button class="btn page-link" @onclick="nextMonth" disabled="@disableNextmonthBtn"> <i class="fa fa-angle-right"></i></button>
+                                    </li>
+                                    @*<li class="">
+                                        <a class="page-link" href="/dashboard"> <i class="fa fa-user-plus"></i></a>
+                                    </li>*@
+                                </ul>
+                            </nav>
+    
+                        </div>
+
+                    </div>
+
+                    <div class="container-fluid px-2 my-3">
+                        <table class="table" style="border-collapse: separate">
+                            <thead>
+                                <tr>
+                                    <td>Sun</td>
+                                    <td>Mon</td>
+                                    <td>Tue</td>
+                                    <td>Wed</td>
+                                    <td>Thu</td>
+                                    <td>Fri</td>
+                                    <td>Sat</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @if (displayMonth)
+                                {
+                                    @for (var weekIndex = 0; weekIndex < weeks.Count(); weekIndex++)
+                                    {
+                                        <tr>
+                                            @for (var dayIndex = 0; dayIndex < weeks[weekIndex].Dates.Count(); dayIndex++)
+                                            {
+                                                var wIndex = weekIndex;
+                                                var dIndex = dayIndex;
+                                                var dateString = weeks[weekIndex].Dates[dayIndex].DateValue;
+                                                var selectedDate = DateTime.MinValue;
+                                                if (!string.IsNullOrEmpty(dateString))
+                                                {
+                                                    selectedDate = DateTime.ParseExact(dateString, "dd-MMM-yyyy", CultureInfo.InvariantCulture);
+                                                }
+                                                <td @ondblclick="@(string.IsNullOrEmpty(dateString) ? (Action)null : (() => NavigatetoRoom(selectedDate)))">
+                                                    @if (selectedDate != DateTime.MinValue)
+                                                    {
+
+                                                        @if (selectedDate == DateTime.Today)
+                                                        {
+                                                            <p class="today w-25">@selectedDate.Day</p>
+                                                        }
+                                                        else
+                                                        {
+                                                            <p> @selectedDate.Day </p>
+                                                        }
+
+                                                    }
+                                                    <br /><br />
+                                                    @*Cell Number: [@weekIndex, @dayIndex]*@
+                                                </td>
+                                            }
+                                        </tr>
+                                    }
+
+                                }
+
+                            </tbody>
+
+                        </table>
+                    </div>
+                </div>
+            </div>
+       </div>
+    </div>
+</div>

@@ -1,0 +1,1090 @@
+﻿@page "/rentalmanagement"
+@page "/rentalmanagement/{_activeTab}"
+@page "/rentalmanagement/{_activeTab}/{LogNo}"
+@inherits RentalManagementBase
+
+<PageTitle>Property Management </PageTitle>
+
+<div class="agreement-log">
+    <div class="container-fluid my-2">
+        <div class="row">
+            <div class="col">
+                <div class="card">
+                    <div class="card-header py-2 d-flex justify-content-between align-items-center" style="border-bottom: 2px solid var(--primary); background-color: #F8F8F8">
+                        <div>
+                            <h6> Rental Management <span class="fa fa-handshake mx-2"></span> </h6>
+                        </div>
+                        <div class="d-flex align-items-end">
+                            <div class="">
+                                <ul class="header-addons mb-0">
+                                    <li class="">
+                                        <a class="page-link" href="/property"><i class="fa fa-plus"></i></a>
+                                    </li>
+                                    <li class="">
+                                        <a class="page-link" href="/"><i class="fa fa-floppy-disk"></i></a>
+                                    </li>
+                                    <li class="">
+                                        <a class="page-link" href="/"><i class="fa fa-arrow-left"></i></a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card-body">
+                        <div class="row agreement-information px-2 py-3">
+                            <div class="col-sm-6">
+                                <table class="table table-sm align-middle">
+                                    <tr>
+                                        <td>Log No.</td>
+                                        <td class="w-25">:</td>
+                                        <td>
+                                            @if(LogNo == null){
+                                                <input type="text" class="form-control w-50" id="Agreement" disabled>
+                                            }                           
+                                            else{
+                                                <input type="text" class="form-control w-50" id="Agreement" @bind-value="LogNo" disabled>
+
+                                            }
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div class="col-sm-6">
+                                <table class="table table-sm align-middle">
+                                    <tr>
+                                        <td>Date</td>
+                                        <td class="w-25">:</td>
+                                        <td>
+                                            @if (LogNo == null)
+                                            {
+                                                <input type="date" class="form-control w-50" id="Date"  disabled>
+                                            }
+                                            else
+                                            {
+                                                <input type="date" class="form-control w-50" id="Date" @bind-value="_agreementData.Date" disabled>
+                                            }
+                                         </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                        @* Tabs section*@
+
+                        <div class="row log-tabs" style="border-bottom: 2px solid var(--primary); background-color: #F8F8F8">
+                            <div class="col-sm-10">
+                                <ul class="nav nav-pills" id="pills-tab" role="tablist">
+                                   
+                                   <li class="nav-item" role="presentation">
+                                        <button class="@GetTabHeadClass("rentaldetailTab")" data-bs-toggle="pill" data-bs-target="#rentaldetailTab " type="button" role="tab" aria-controls="pills-contact" aria-selected="true" @onclick='() => setActiveClass("rentaldetailTab")'>Detail</button>
+                                    </li>
+                                    <li class="nav-item" role="presentation">
+                                        <button class="@GetTabHeadClass("revenueTab")" data-bs-toggle="pill" data-bs-target="#revenueTab" type="button" role="tab" aria-controls="pills-contact" aria-selected="false" @onclick='() => setActiveClass("revenueTab")'>Revenue </button>
+                                    </li>
+                                    <li class="nav-item" role="presentation">
+                                        <button class="@GetTabHeadClass("communicationTab")" data-bs-toggle="pill" data-bs-target="#communicationTab" type="button" role="tab" aria-controls="pills-contact" aria-selected="false" @onclick='() => setActiveClass("communicationTab")'>Communication</button>
+                                    </li>
+                                    <li class="nav-item" role="presentation">
+                                        <button class="@GetTabHeadClass("judiciaryTab")" data-bs-toggle="pill" data-bs-target="#judiciaryTab" type="button" role="tab" aria-controls="pills-contact" aria-selected="false" @onclick='() => setActiveClass("judiciaryTab")'>Judiciary Actions</button>
+                                    </li>
+                                    <li class="nav-item" role="presentation">
+                                        <button class="@GetTabHeadClass("terminationTab")" data-bs-toggle="pill" data-bs-target="#terminationTab" type="button" role="tab" aria-controls="pills-contact" aria-selected="false" @onclick='() => setActiveClass("terminationTab")'>Termination</button>
+                                    </li>
+                                </ul>
+                            </div>
+                            
+                            <div class="col-sm-2">
+                                <div class="d-flex justify-content-end py-2 log">
+                                   <a class="page-link-opposite mx-1 @GetTabBtnClass("rentaldetailTab")" @onclick=openRentalModal>
+
+                                        <span class="mx-2">Add Detail</span>
+                                    </a><a class="page-link-opposite mx-1 @GetTabBtnClass("revenueTab")" @onclick=openRevenueModal>
+                                        <span class="mx-2">Add Revenue</span>
+                                    </a>
+                                    <a class="page-link-opposite mx-1 @GetTabBtnClass("communicationTab")" @onclick=openCommunicationModal>
+                                        <span class="mx-2">Add Communication</span>
+                                    </a>
+                                    <a class="page-link-opposite mx-1 @GetTabBtnClass("judiciaryTab")" @onclick=openJudiciaryModal>
+                                        <span class="mx-2">Add Judiciary Action</span>
+                                    </a>
+                                    <a class="page-link-opposite mx-1 @GetTabBtnClass("terminationTab")" @onclick=openTerminationModal>
+                                        <span class="mx-2">Add Termination</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="tab-content" id="pills-tabContent">
+
+                           
+                       @*     "tab-pane fade show tabContent active"*@
+
+                            <!-- RentalDetail tab -->
+                            <div id="rentaldetailTab" class="tab-pane fade show tabContent @getActiveClass("rentaldetailTab")" role="tabpanel" aria-labelledby="pills-contact-tab">
+                                <div class="row table-responsive">
+                                    <table class="table table-sm table-hover">
+                                        <thead class="thead-light">
+                                            <tr>
+                                                <td>Agreement No </td>
+                                                 <td>Property Name </td>
+                                                <td>Address </td>
+                                                <td>Block No </td>
+                                                <td>Floor No</td>
+                                                <td>Room No</td>
+                                                <td>Rental Type </td>
+                                                <td>Increment Method </td>
+                                                <td>Penalty apply with rate </td>
+                                                <td>Action </td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            
+                                            @if(LogNo == null){
+                                                <tr>
+                                                    <td colspan="9" class="text-center">No data available</td>
+                                                </tr>
+                                            }
+                                            else
+                                            {
+                                                @foreach(var rentalDetail in rentalData)
+                                                {
+                                                    <tr>
+                                                        <td>@rentalDetail.AgreementNo</td>
+                                                        <td>@rentalDetail.PropertyName</td>
+                                                        <td>@rentalDetail.Address</td>
+                                                        <td>@rentalDetail.BlockNo</td>
+                                                        <td>@rentalDetail.FloorNo</td>
+                                                        <td>@rentalDetail.RoomNo</td>
+                                                        <td>@rentalDetail.RentalType</td>
+                                                        <td>@rentalDetail.IncrementMethod</td>
+                                                        <td>@rentalDetail.Penalty</td>
+                                                        <td class="action text-right">
+                                                            <ul class="header-addons page-item mb-0">
+                                                                <li class="">
+                                                                    <a class="page-link" href=""><i class="fa fa-pencil"></i></a>
+                                                                </li>
+                                                                <li class="">
+                                                                    <a class="page-link" href=""><i class="fa fa-trash"></i> </a>
+                                                                </li>
+                                                            </ul>
+                                                        </td>
+                                                    </tr>
+                                                }
+                                            }
+                                            
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            @*Rental tab end*@
+
+                    
+                           
+                              
+
+                            @*Revenue starts*@
+                            <div id="revenueTab" class="tab-pane fade show tabContent @getActiveClass("revenueTab")">
+                                 <div class="row table-responsive">
+                                    <table class="table table-sm table-hover">
+                                        <thead class="thead-light">
+                                            <tr>
+                                                <td>Agreement No</td>
+                                                <td>Property Name</td>
+                                                <td>Date</td>
+                                                <td>Received Amount</td>
+                                                <td>Payment Method</td>
+                                                <td>TPS Deduction</td>
+                                                <td>Rebate</td>
+                                                <td>Reason</td>
+                                                <td>Action</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            
+                                            @if(LogNo == null){
+                                                <tr>
+                                                    <td colspan="9" class="text-center">No data available</td>
+                                                </tr>
+                                            }
+                                            else
+                                            {
+                                                @foreach(var revenuDetail in _revenuData)
+                                                {
+                                                    <tr>
+                                                        <td>@revenuDetail.AgreementNo</td>
+                                                        <td>@revenuDetail.PropertyName</td>
+                                                        <td>@revenuDetail.date</td>
+                                                        <td>@revenuDetail.ReceivedAmount</td>
+                                                        <td>@revenuDetail.PaymentMethod</td>
+                                                        <td>@revenuDetail.TpsDeduction</td>
+                                                        <td>@revenuDetail.Rebate</td>
+                                                        <td>@revenuDetail.Reason</td>
+                                                        <td class="action text-right">
+                                                            <ul class="header-addons page-item mb-0">
+                                                                <li class="">
+                                                                    <a class="page-link" href=""><i class="fa fa-pencil"></i></a>
+                                                                </li>
+                                                                <li class="">
+                                                                    <a class="page-link" href=""><i class="fa fa-trash"></i> </a>
+                                                                </li>
+                                                            </ul>
+                                                        </td>
+                                                    </tr>
+                                                }
+                                                
+                                            }
+                                            
+                                           
+                                        </tbody>
+                                    </table>
+
+                                </div>
+                               
+                            </div>
+                             @*Communication starts*@
+                           <div id="communicationTab" class="tab-pane fade show tabContent  @getActiveClass("communicationTab")">
+                                <div class="row table-responsive">
+                                    <table class="table table-sm table-hover">
+                                        <thead class="thead-light">
+                                            <tr>
+                                                <td>Agreement No </td>
+                                                 <td>Property Name </td>
+                                                <td>Date </td>
+                                                <td>Time</td>
+                                                <td>Sender</td>
+                                                <td>Recipient</td>
+                                                <td>Message </td>
+                                                <td>Action </td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @if(LogNo == null){
+                                                <tr>
+                                                    <td colspan="9" class="text-center">No data available</td>
+                                                </tr>
+                                            }
+                                            else
+                                            {
+                                                @foreach(var communicationDetail in _communicationData)
+                                                {
+                                                    <tr>
+                                                        <td>@communicationDetail.AgreementNo</td>
+                                                        <td>@communicationDetail.PropertyName</td>
+                                                        <td>@communicationDetail.date</td>
+                                                        <td>@communicationDetail.time</td>
+                                                        <td>@communicationDetail.Sender</td>
+                                                        <td>@communicationDetail.Recipient</td>
+                                                        <td>@communicationDetail.Message</td>
+                                                        <td class="action text-right">
+                                                            <ul class="header-addons page-item mb-0">
+                                                                <li class="">
+                                                                    <a class="page-link" href=""><i class="fa fa-pencil"></i></a>
+                                                                </li>
+                                                                <li class="">
+                                                                    <a class="page-link" href=""><i class="fa fa-trash"></i> </a>
+                                                                </li>
+                                                            </ul>
+                                                        </td>
+                                                    </tr>
+                                                }
+                                            }
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                           
+       
+
+                            <!--Judiciary tab-->
+                            
+                            <div id="judiciaryTab" class="tab-pane fade show tabContent @getActiveClass("judiciaryTab")">
+                                <div class="row table-responsive ">
+                                    <table class="table table-sm table-hover">
+                                        <thead class="thead-light">
+                                            <tr>
+                                                <td>Agreement No</td>
+                                                <td>Property Name </td>
+                                                <td>Date </td>
+                                                <td>Time </td>
+                                                <td>Action Taken</td>
+                                                <td>Reason </td>
+                                                <td>Gov representative</td>
+                                                <td>Police representative</td>
+                                                <td>Action </td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @if(LogNo == null){
+                                                <tr>
+                                                    <td colspan="9" class="text-center">No data available</td>
+                                                </tr>
+                                            }
+                                            else
+                                            {
+                                                @foreach(var judiciaryDetail in _judiciaryData)
+                                                {
+                                                    <tr>
+                                                        <td>@judiciaryDetail.AgreementNo</td>
+                                                        <td>@judiciaryDetail.PropertyName</td>
+                                                        <td>@judiciaryDetail.date</td>
+                                                        <td>@judiciaryDetail.Time</td>
+                                                        <td>@judiciaryDetail.Action</td>
+                                                        <td>@judiciaryDetail.Reason</td>
+                                                        <td>@judiciaryDetail.GovRep</td>
+                                                        <td>@judiciaryDetail.PoliceRep</td>
+                                                        <td class="action text-right">
+                                                            <ul class="header-addons page-item mb-0">
+                                                                <li class="">
+                                                                    <a class="page-link" href=""><i class="fa fa-pencil"></i></a>
+                                                                </li>
+                                                                <li class="">
+                                                                    <a class="page-link" href=""><i class="fa fa-trash"></i> </a>
+                                                                </li>
+                                                            </ul>
+                                                        </td>
+                                                    </tr>
+                                                }
+                                            }
+
+                                        </tbody>
+                                    </table>
+
+                                </div>
+                            </div>
+                            <!--termination tab-->
+                           
+                            <div id="terminationTab" class="tab-pane fade show tabContent @getActiveClass("terminationTab")">
+                                <br/>
+                                <div class="row table-responsive">
+                                    <table class="table table-sm table-hover">
+                                        <thead class="thead-light">
+                                        <tr>
+                                            <td>Agreement No</td>
+                                            <td>Property Name</td>
+                                            <td>Date </td>
+                                            <td>Time</td>
+                                            <td>Reason</td>
+                                            <td>Settlement Amount </td>
+                                            <td>Payment Method </td>
+                                            <td>Terminated By </td>
+                                            <td>Action </td>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                            @if(LogNo == null){
+                                                <tr>
+                                                    <td colspan="9" class="text-center">No data available</td>
+                                                </tr>
+                                            }
+                                            else
+                                            {
+                                                @foreach(var terminationDetail in _terminationData)
+                                                {
+                                                    <tr>
+                                                        <td>@terminationDetail.AgreementNo</td>
+                                                        <td>@terminationDetail.PropertyName</td>
+                                                        <td>@terminationDetail.date</td>
+                                                        <td>@terminationDetail.Time</td>
+                                                        <td>@terminationDetail.Reason</td>
+                                                        <td>@terminationDetail.SettlementAmount</td>
+                                                        <td>@terminationDetail.PaymentMethod</td>
+                                                        <td>@terminationDetail.TerminatedBy</td>
+                                                        <td class="action text-right">
+                                                            <ul class="header-addons page-item mb-0">
+                                                                <li class="">
+                                                                    <a class="page-link" href=""><i class="fa fa-pencil"></i></a>
+                                                                </li>
+                                                                <li class="">
+                                                                    <a class="page-link" href=""><i class="fa fa-trash"></i> </a>
+                                                                </li>
+                                                            </ul>
+                                                        </td>
+                                                    </tr>
+                                                }
+                                            }
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@if (companyModal)
+{
+    <Modals Title="Add Company"
+          ModalSize="modal-xl"
+            Type="Modals.Category.Save"
+        OnClose="closeCompanyModal">
+        <label for="edesc">Company description in English</label>
+        <textarea type="text" class="form-control" placeholder="Company description" />
+        <label for="ndesc">Company description in Nepali</label>
+        <textarea type="text" class="form-control" placeholder="कम्पनी विवरण" />
+        @*<label for="roomType">Room Type</label>
+    <select class="form-control" >
+    @foreach (var room in _roomType)
+    {
+    <option value=@room>@room</option>
+    }
+    </select>*@
+        <label for="vat">Vat Pan No.</label>
+        <input type="text" class="form-control" placeholder="Vat Number">
+        <label for="phone">Phone Number</label>
+        <input type="text" class="form-control" placeholder="5000500">
+        <label for="mobile">Mobile Number</label>
+        <input type="text" class="form-control" placeholder="9000000000">
+        <label for="email">Email</label>
+        <input type="email" class="form-control" placeholder="neo@example.com">
+        <label for="contactPerson">Contact Person</label>
+        <input type="text" class="form-control" placeholder="Bijay Baniya">
+        <label for="website">Website</label>
+        <input type="url" class="form-control" placeholder="www.neosoftware.com.np">
+
+    </Modals>
+}
+
+
+@*Rental detail Modal*@
+@if (rentaldetailModal)
+{
+    <Modals Title="Add Revenue"
+          ModalSize="modal-xl"
+            Type="Modals.Category.Save"
+    OnClose="closerentaldetailModal">
+
+      
+        <div class="row">
+            <div class="col-sm-6">
+                 <table class="table table-sm">
+                <tr>
+                    <td>
+                       Aggrement No
+                    </td>
+                    <td class="w-25">:</td>
+                    <td>
+                        <select class="form-field  ">
+                            <option value="1">AG1225 </option>
+                            <option value="2">AG1224</option>
+                            <option value="3">AG1223</option>
+                            <option value="4">AG1222</option>
+                            <option value="5">AG1221</option>
+                        </select>
+                    </td>
+                </tr>
+               
+
+                <tr>
+                    <td>
+                        Property Name
+                    </td>
+                    <td class="w-25 mt-3">:</td>
+                    <td>
+                        <select class="form-field  ">
+                            <option value="1">Biraj Appartment </option>
+                            <option value="2">Ninad Housing</option>
+                            <option value="3">Rajib Shelter</option>
+                            <option value="4">CG Colony</option>
+                            <option value="5">sushil House</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Block No
+                    </td>
+                    <td class="w-25 mt-3">:</td>
+                    <td>
+                        <select class="form-field  ">
+                            <option value="1">1</option>
+                            <option value="2">2 </option>
+                            <option value="3">3 </option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Address</td>
+                    <td>:</td>
+                    <td>
+                         <input type="text" class="form-field mt-2">
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Floor No</td>
+                    <td>:</td>
+                    <td>
+                        <input type="text" class="form-field mt-2">
+
+                    </td>
+                </tr>       
+            </table>
+
+            </div>
+            <div class="col-sm-6">
+                 <table class="table table-sm table-borderless">
+                 <tr >
+                    <td>
+                        Room No
+                    </td>
+                    <td>:</td>
+
+                    <td>
+                          <input type="text" class="form-field mt-2">
+                    </td>
+                </tr>
+           
+
+                <tr >
+                    <td>
+                        Rental Type
+                    </td>
+                    <td>:</td>
+
+                    <td>
+                          <input type="text" class="form-field mt-2">
+                    </td>
+                </tr> 
+                <tr >
+                    <td>
+                       Incremental Method
+                    </td>
+                    <td>:</td>
+
+                    <td>
+                         <input type="text" class="form-field mt-2">
+                    </td>
+                </tr>   
+                <tr >
+                    <td>
+                      Penalty apply with rate
+                    </td>
+                    <td>:</td>
+
+                    <td>
+                            <input type="text" class="form-field mt-2">
+                    </td>
+                </tr>
+               
+               
+            </table>
+            </div>
+        </div>
+
+    </Modals>
+}
+
+
+
+@*Revenue Modal*@
+@if (revenueModal)
+{
+    <Modals Title="Add Revenue"
+          ModalSize="modal-xl"
+            Type="Modals.Category.Save"
+    OnClose="closeRevenueModal">
+
+      
+        <div class="row">
+            <div class="col-sm-6">
+                 <table class="table table-sm">
+                <tr>
+                    <td>
+                       Aggrement No
+                    </td>
+                    <td class="w-25">:</td>
+                    <td>
+                        <select class="form-field  ">
+                            <option value="1">AG1225 </option>
+                            <option value="2">AG1224</option>
+                            <option value="3">AG1223</option>
+                            <option value="4">AG1222</option>
+                            <option value="5">AG1221</option>
+                        </select>
+                    </td>
+                </tr>
+               
+
+                <tr>
+                    <td>
+                        Property Name
+                    </td>
+                    <td class="w-25 mt-3">:</td>
+                    <td>
+                        <select class="form-field  ">
+                            <option value="1">Biraj Appartment </option>
+                            <option value="2">Ninad Housing</option>
+                            <option value="3">Rajib Shelter</option>
+                            <option value="4">CG Colony</option>
+                            <option value="5">sushil House</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Date</td>
+                    <td>:</td>
+                    <td>
+                        <input type="date" class="form-control mt-2" @bind-value=_revenueData.date/>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Received Amount</td>
+                    <td>:</td>
+                    <td>
+                        <input type="text" class="form-field mt-2">
+
+                    </td>
+                </tr>       
+            </table>
+
+            </div>
+            <div class="col-sm-6">
+                 <table class="table table-sm table-borderless">
+                 <tr >
+                    <td>
+                        Payment Method
+                    </td>
+                    <td>:</td>
+
+                    <td>
+                          <select class="form-control" @bind=_revenueData.PaymentMethod>
+                                @foreach (var method in _paymentMethod)
+                                {
+                                    <option value=@method>@method</option>
+                                }
+                          </select>
+                    </td>
+                </tr>
+           
+
+                <tr >
+                    <td>
+                        TPS Reduction
+                    </td>
+                    <td>:</td>
+
+                    <td>
+                         <input type="number" class="form-control mt-2" placeholder="0.5" @bind-value=_revenueData.TpsDeduction>
+                    </td>
+                </tr> 
+                <tr >
+                    <td>
+                       Rebate %
+                    </td>
+                    <td>:</td>
+
+                    <td>
+                          <input type="number" class="form-control mt-2" placeholder="1.5" @bind-value=_revenueData.Rebate>
+                    </td>
+                </tr>   
+                <tr >
+                    <td>
+                      Reason
+                    </td>
+                    <td>:</td>
+
+                    <td>
+                           <textarea type="text" class="form-control mt-2" placeholder="Reason" @bind=_revenueData.Reason/>
+                    </td>
+                </tr>
+               
+               
+            </table>
+            </div>
+        </div>
+
+    </Modals>
+}
+
+
+
+@*Agreement Modal*@
+@if (agreementModal)
+{
+    <Modals Title="Add Agreement"
+            ModalSize="modal-xl"
+            Type="Modals.Category.Submit"
+            OnClose="closeAgreementModal">
+        
+        @foreach (var agg in agreements)
+        {
+            
+            <div class="form-check mb-2">
+                <input class="form-check-input" type="checkbox" value="" id="@agreements.IndexOf(agg)" checked="@IsChecked">
+                <label class="form-check-label" for="@agreements.IndexOf(agg)">
+                    @agg
+                </Label>
+            </div>
+
+            
+        }
+        
+        @if (IsChecked)
+        {
+            <button type="button" class="btn btn-primary" @onclick="RejectAll">Reject All</button>
+        }
+        else
+        {
+            <button type="button" class="btn btn-primary" @onclick="CheckAll">Check All</button>
+        }
+        
+
+    </Modals>
+
+}
+
+
+@if (communicationModal)
+{
+    <Modals
+        Title="Add Maintenance"
+        ModalSize="modal-xl"
+        Type="Modals.Category.Add"
+        OnClose="closeCommunicationModal">
+   
+        <div class="row">
+            <div class="col-sm-6">
+                <table class="table table-sm">
+                <tr>
+                    <td>
+                       Aggrement No
+                    </td>
+                    <td class="w-25">:</td>
+                    <td>
+                        <select class="form-field  ">
+                            <option value="1">AG1225 </option>
+                            <option value="2">AG1224</option>
+                            <option value="3">AG1223</option>
+                            <option value="4">AG1222</option>
+                            <option value="5">AG1221</option>
+                        </select>
+                    </td>
+                </tr>
+               
+
+                <tr>
+                    <td>
+                        Property Name
+                    </td>
+                    <td class="w-25 mt-3">:</td>
+                    <td>
+                        <select class="form-field  ">
+                            <option value="1">Biraj Appartment </option>
+                            <option value="2">Ninad Housing</option>
+                            <option value="3">Rajib Shelter</option>
+                            <option value="4">CG Colony</option>
+                            <option value="5">sushil House</option>
+                        </select>
+                    </td>
+                </tr>
+
+                  <tr>
+                    <td>Date</td>
+                    <td>:</td>
+                    <td>
+                        <input type="date" class="form-control mt-2" @bind-value=_revenueData.date/>
+                    </td>
+                </tr>
+             
+                <tr>
+                    <td>Time</td>
+                    <td>:</td>
+                    <td>
+                         <input type="time" class="form-control"/>
+
+                    </td>
+                </tr>       
+            </table>
+            </div>
+            <div class="col-sm-6">
+                <table class="table table-sm table-borderless">
+                 <tr >
+                    <td>
+                       Sender
+                    </td>
+                    <td>:</td>
+
+                    <td>
+                         <input type="text" class="form-control"/>
+                    </td>
+                </tr>
+                <tr >
+                    <td>
+                       Recipient
+                    </td>
+                    <td>:</td>
+
+                    <td>
+                         <input type="text" class="form-control"/>
+                    </td>
+                </tr>
+           
+
+                <tr >
+                    <td>
+                        Message
+                    </td>
+                    <td>:</td>
+
+                    <td>
+                   <textarea rows="5" class="form-control"/>
+                    </td>
+                </tr> 
+                
+               
+              </table>
+            </div>
+        </div>
+        
+
+    </Modals>
+}
+
+@if (judiciaryModal)
+{
+    <Modals
+        Title="Add Judiciary"
+        ModalSize="modal-xl"
+        Type="Modals.Category.Add"
+        OnClose="closeJudiciaryModal">
+   
+        <div class="row">
+            <div class="col-sm-6">
+                <table class="table table-sm">
+                <tr>
+                    <td>
+                       Aggrement No
+                    </td>
+                    <td class="w-25">:</td>
+                    <td>
+                        <select class="form-field  ">
+                            <option value="1">AG1225 </option>
+                            <option value="2">AG1224</option>
+                            <option value="3">AG1223</option>
+                            <option value="4">AG1222</option>
+                            <option value="5">AG1221</option>
+                        </select>
+                    </td>
+                </tr>
+               
+
+                <tr>
+                    <td>
+                        Property Name
+                    </td>
+                    <td class="w-25 mt-3">:</td>
+                    <td>
+                        <select class="form-field  ">
+                            <option value="1">Biraj Appartment </option>
+                            <option value="2">Ninad Housing</option>
+                            <option value="3">Rajib Shelter</option>
+                            <option value="4">CG Colony</option>
+                            <option value="5">sushil House</option>
+                        </select>
+                    </td>
+                </tr>
+
+                  <tr>
+                    <td>Date</td>
+                    <td>:</td>
+                    <td>
+                        <input type="date" class="form-control mt-2" @bind-value=_revenueData.date/>
+                    </td>
+                </tr>
+             
+                <tr>
+                    <td>Time</td>
+                    <td>:</td>
+                    <td>
+                         <input type="time" class="form-control"/>
+
+                    </td>
+                </tr>   
+                <tr>
+                    <td>Action</td>
+                    <td>:</td>
+                    <td>
+                         <select class="form-control">
+                            <option value="Open">Open</option>
+                            <option value="Close">Close</option>
+                        </select>
+
+                    </td>
+                </tr>       
+            </table>
+            </div>
+            <div class="col-sm-6">
+                <table class="table table-sm table-borderless">
+                 <tr >
+                    <td>
+                       Government Representative
+                    </td>
+                    <td>:</td>
+
+                    <td>
+                         <input type="text" class="form-control"/>
+                    </td>
+                </tr>
+                <tr >
+                    <td>
+                       Police Representative
+                    </td>
+                    <td>:</td>
+
+                    <td>
+                         <input type="text" class="form-control"/>
+                    </td>
+                </tr>
+           
+
+                <tr >
+                    <td>
+                        Reason
+                    </td>
+                    <td>:</td>
+
+                    <td>
+                   <textarea rows="3" class="form-control"/>
+                    </td>
+                </tr> 
+                
+               
+              </table>
+            </div>
+        </div>
+
+    </Modals>
+}
+
+
+@*Termination Modal*@
+@if(terminationModal)
+{
+    <Modals Title="Add Termination"
+         ModalSize="modal-xl"
+            Type="Modals.Category.Save"
+            OnClose="closeTerminationModal">
+      
+
+    <div class="row">
+        <div class="col-sm-6">
+            <table class="table table-sm">
+                <tr>
+                    <td>
+                       Aggrement No
+                    </td>
+                    <td class="w-25">:</td>
+                    <td>
+                        <select class="form-field  ">
+                            <option value="1">AG1225 </option>
+                            <option value="2">AG1224</option>
+                            <option value="3">AG1223</option>
+                            <option value="4">AG1222</option>
+                            <option value="5">AG1221</option>
+                        </select>
+                    </td>
+                </tr>
+               
+
+                <tr>
+                    <td>
+                        Property Name
+                    </td>
+                    <td class="w-25 mt-3">:</td>
+                    <td>
+                        <select class="form-field  ">
+                            <option value="1">Biraj Appartment </option>
+                            <option value="2">Ninad Housing</option>
+                            <option value="3">Rajib Shelter</option>
+                            <option value="4">CG Colony</option>
+                            <option value="5">sushil House</option>
+                        </select>
+                    </td>
+                </tr>
+
+                  <tr>
+                    <td>Date</td>
+                    <td>:</td>
+                    <td>
+                        <input type="date" class="form-control mt-2" @bind-value=_revenueData.date/>
+                    </td>
+                </tr>
+             
+                <tr>
+                    <td>Time</td>
+                    <td>:</td>
+                    <td>
+                         <input type="time" class="form-control"/>
+
+                    </td>
+                </tr>   
+                <tr>
+                    <td>Terminated By</td>
+                    <td>:</td>
+                    <td>
+                         <input type="text" class="form-control" />
+
+                    </td>
+                </tr>       
+            </table>
+        </div>
+        <div class="col-sm-6">
+             <table class="table table-sm table-borderless">
+                 <tr >
+                    <td>
+                        Reason
+                    </td>
+                    <td>:</td>
+
+                    <td>
+                         <textarea class="form-control"  rows="3"/>
+                    </td>
+                </tr>
+           
+
+                <tr >
+                    <td>
+                        Settlement Amount
+                    </td>
+                    <td>:</td>
+
+                    <td>
+                         <input type="text" class="form-control mt-2" />
+                    </td>
+                </tr>
+                <tr >
+                    <td>
+                        Payment Method
+                    </td>
+                    <td>:</td>
+
+                    <td>
+                        <select class="form-control mt-2">
+                            @foreach (var method in _paymentMethod)
+                            {
+                                <option value="@method">@method</option>
+                            }
+                        </select>
+                    </td>
+                </tr>
+               
+            </table>
+        </div>
+    </div>
+        
+        
+        
+    </Modals>
+}
+
+

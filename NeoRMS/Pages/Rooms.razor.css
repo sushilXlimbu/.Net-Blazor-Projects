@@ -1,0 +1,66 @@
+﻿.action .page-link {
+    border-radius: 50%;
+    padding: 0.175rem 0.55rem;
+}
+
+.log .page-link {
+    border-radius: 8%;
+    padding: 0;
+}
+
+/*tbody .page-link {
+    border-radius: 8%;
+    padding: 0 !important;
+}*/
+
+.card-body {
+    padding: 0;
+}
+
+.table .thead-light td {
+    color: #8898aa;
+    border-color: #e9ecef;
+    background-color: #e7f5fe;
+    padding-left: 8px;
+    padding-right: 8px;
+}
+
+tbody:before {
+    content: "-";
+    display: block;
+    line-height: .8em;
+    color: transparent;
+}
+
+tbody {
+    font-size: .9rem;
+}
+
+.table tbody td {
+    color: var(--text-color);
+    padding-left: 8px;
+    padding-right: 8px;
+}
+
+.table tbody tr:first-child {
+    border-top: 1px solid #e9ecef;
+}
+
+.badge-dot {
+    font-size: .875rem;
+    font-weight: 400;
+    padding-right: 0;
+    padding-left: 0;
+    text-transform: none;
+    background: transparent;
+    color: var(--text-color);
+}
+
+    .badge-dot i {
+        display: inline-block;
+        width: .375rem;
+        height: .375rem;
+        margin-right: .375rem;
+        vertical-align: middle;
+        border-radius: 50%;
+    }

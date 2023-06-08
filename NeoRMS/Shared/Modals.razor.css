@@ -1,0 +1,29 @@
+﻿/*.form-field {
+    outline: 0;
+    background: transparent;
+    transition: border-color 0.3s;
+    border: 1px solid #dee2e6;
+    border-radius: 7px;
+    line-height: 2.5rem;
+    width: 100%;
+    padding: 0 1rem 0 1rem;
+}
+
+    .form-field:focus {
+        border-image: linear-gradient(to right, #38ef7d, #38ef7d);
+        border: 1px solid #38ef7d !important;
+        border-image-slice: 1 !important;
+    }
+
+.modal-body .form-field {
+    margin-left: 0 !important;
+}*/
+
+.modal-footer {
+    padding: 0.25rem !important;
+}
+
+    .modal-footer .btn {
+        padding: 0.275rem 0.65rem !important;
+        font-size: .9rem;
+    }

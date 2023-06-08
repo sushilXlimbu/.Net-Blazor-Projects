@@ -1,0 +1,9 @@
+﻿.action .page-link {
+    border-radius: 50%;
+    padding: 0.175rem 0.55rem;
+}
+
+.log .page-link {
+    border-radius: 8%;
+    padding: 0;
+}

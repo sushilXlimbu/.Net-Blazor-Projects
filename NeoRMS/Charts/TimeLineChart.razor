@@ -1,0 +1,90 @@
+﻿@using ChartJs.Blazor.LineChart
+
+<div style="width:600px">
+    <Chart Config="_timeLineConfig"></Chart>
+</div>
+
+@code {
+    private LineConfig _timeLineConfig;
+
+    protected override void OnInitialized()
+    {
+        ConfigureTimeLineConfig();
+    }
+
+    private void ConfigureTimeLineConfig()
+    {
+        _timeLineConfig = new LineConfig
+        {
+            Options = new LineOptions
+            {
+                Responsive = true,
+                Title = new OptionsTitle
+                {
+                    Display = true,
+                    Text = "Property",
+                    Position = Position.Bottom,
+                },
+                Scales = new Scales
+                {
+                    YAxes = new List<CartesianAxis>
+                    {
+                        new LinearCartesianAxis
+                        {
+                            ScaleLabel = new ScaleLabel
+                            {
+                                Display = true,
+                                LabelString = "Revenue Generated",
+                            }
+                        }
+                    }
+                },
+                Legend = new Legend
+                {
+                    Display = false
+                }
+            }
+        };
+
+        //string[] _roomType = { "Deluxe Room", "Executive Suite Room", "Penthouse Standard Room", "Standard Single Room", "Standard Twin Room", "Presidential Suite Room" };
+
+        //foreach (string room in _roomType)
+        //{
+        //    _timeLineConfig.Data.Labels.Add(room);
+        //}
+
+        //int[] _roomOccupied = { 10, 12, 20, 5, 11, 3 };
+
+        //LineDataset<int> dataset = new LineDataset<int>(_roomOccupied)
+        //{
+        //    BackgroundColor = ColorUtil.ColorHexString(255, 99, 132),
+        //    BorderColor = ColorUtil.ColorHexString(255, 99, 132),
+        //    Fill = false
+        //};
+
+        string[] _time = { "Unit Management", "Tenant Management", "Maintenance and Repairs", "Rent Collection", "Lease Management", "Services", "Legal Considerations" };
+        foreach (string time in _time)
+        {
+            _timeLineConfig.Data.Labels.Add(time);
+        }
+
+        int[] _customerCount = { 10000, 20000, 35000, 90000, 50000, 100000,10000};
+
+        LineDataset<int> dataset = new LineDataset<int>(_customerCount)
+        {
+                BackgroundColor = ColorUtil.ColorHexString(75, 159, 72),
+                BorderColor = ColorUtil.ColorHexString(208, 240, 192),
+            Fill = false
+        };
+
+        _timeLineConfig.Data.Datasets.Add(dataset);
+    }
+
+}
+
+
+
+
+
+
+

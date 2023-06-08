@@ -1,0 +1,66 @@
+.action .page-link[b-6xe1rq6tgw] {
+    border-radius: 50%;
+    padding: 0.175rem 0.55rem;
+}
+
+.log .page-link[b-6xe1rq6tgw] {
+    border-radius: 8%;
+    padding: 0;
+}
+
+/*tbody .page-link {
+    border-radius: 8%;
+    padding: 0 !important;
+}*/
+
+.card-body[b-6xe1rq6tgw] {
+    padding: 0;
+}
+
+.table .thead-light td[b-6xe1rq6tgw] {
+    color: #8898aa;
+    border-color: #e9ecef;
+    background-color: #e7f5fe;
+    padding-left: 8px;
+    padding-right: 8px;
+}
+
+tbody[b-6xe1rq6tgw]:before {
+    content: "-";
+    display: block;
+    line-height: .8em;
+    color: transparent;
+}
+
+tbody[b-6xe1rq6tgw] {
+    font-size: .9rem;
+}
+
+.table tbody td[b-6xe1rq6tgw] {
+    color: var(--text-color);
+    padding-left: 8px;
+    padding-right: 8px;
+}
+
+.table tbody tr:first-child[b-6xe1rq6tgw] {
+    border-top: 1px solid #e9ecef;
+}
+
+.badge-dot[b-6xe1rq6tgw] {
+    font-size: .875rem;
+    font-weight: 400;
+    padding-right: 0;
+    padding-left: 0;
+    text-transform: none;
+    background: transparent;
+    color: var(--text-color);
+}
+
+    .badge-dot i[b-6xe1rq6tgw] {
+        display: inline-block;
+        width: .375rem;
+        height: .375rem;
+        margin-right: .375rem;
+        vertical-align: middle;
+        border-radius: 50%;
+    }
